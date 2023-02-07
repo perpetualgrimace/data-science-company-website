@@ -1,0 +1,27 @@
+.accordion-panel {
+  margin-top: -1px; // offset double border
+}
+
+.accordion-panel-inner {
+  padding: $sp-lg 1.25rem $sp-lg 0;
+  background-color: $dark-3;
+  border-left: 1px solid $dark-1;
+  border-right: 1px solid $dark-1;
+
+  @media (max-width: 499px) {
+    padding-left: $sp-lg;
+  }
+
+  @media (min-width: 500px) {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-gap: $sp-lg;
+  }
+}
+
+.accordion-panel:last-of-type .accordion-panel-inner {
+  border-bottom-left-radius: $radius-lg;
+  border-bottom-right-radius: $radius-lg;
+  border-bottom: 1px solid $dark-1;
+}

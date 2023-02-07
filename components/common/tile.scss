@@ -1,0 +1,72 @@
+.tile {
+  display: block; // fallback
+  display: flex;
+  text-align: center;
+  padding: 2.5rem;
+  z-index: 1;
+}
+
+.tile-img {
+  transition: transform 0.2s ease-out;
+
+  &:not([src*="logo"]) {
+    height: 2rem;
+    margin-top: $sp-xs;
+  }
+
+  & ~ * {
+    display: block;
+    margin-top: 0.75em;
+  }
+}
+
+.tile-title {
+  @include subhead-text;
+  line-height: 1.25;
+}
+
+// outbound icon
+.tile-icon {
+  position: absolute;
+  top: $sp-xs;
+  right: $sp-xs;
+  transform: scale(0.875);
+  transition: transform 0.2s ease-out;
+
+  path {
+    transition: fill 0.2s ease-out;
+  }
+}
+
+.tile:hover,
+.tile:focus {
+  .tile-img {
+    transform: scale(1.125);
+  }
+  .tile-icon {
+    transform: none;
+
+    path {
+      fill: $white;
+    }
+  }
+}
+
+.darkglass.tile {
+  transition: border-color 0.2s ease-out;
+}
+
+// add background color to pseudo element so it can be transitioned in
+.darkglass.tile:after {
+  @include fancy-outline;
+}
+
+.darkglass.tile:hover,
+.darkglass.tile:focus {
+  border-color: rgba($white, 0.425);
+  box-shadow: 0 1px 14px 0 rgba($white, 0.333);
+
+  &:not([aria-pressed="true"]):after {
+    opacity: 1;
+  }
+}

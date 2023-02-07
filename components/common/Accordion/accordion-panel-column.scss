@@ -1,0 +1,16 @@
+.accordion-panel-column {
+
+  @media (max-width: 499px) {
+    &:not(:last-of-type) {
+      margin-bottom: $sp-lg;
+    }
+  }
+
+  @media (min-width: 500px) {
+    padding-left: $sp-lg;
+
+    &:not(:first-of-type) {
+      border-left: 1px solid $dark-1;
+    }
+  }
+}

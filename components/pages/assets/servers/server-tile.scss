@@ -1,0 +1,71 @@
+.server-tile {
+	display: flex;
+}
+
+.server-tile-button {
+	padding: $sp-md;
+	width: 100%;
+
+	&[aria-pressed="true"] {
+		border-color: $white;
+
+		// prism
+		&:before {
+			@include pseudo;
+			position: absolute;
+			top: -4px; right: -4px; bottom: -4px; left: -4px;
+			border-radius: $radius-lg;
+			background: $prism;
+		}
+
+		.server-tile-inner {
+			position: static;
+
+			&:before {
+				@include pseudo;
+				@include absolute-expand;
+				background: $light-1;
+				background-image: linear-gradient(180deg, rgba($white, 0.75) 0%, rgba($white, 0) 100%);
+				border-radius: $radius-md;
+			}
+		}
+
+		h3 {
+			color: $black;
+		}
+		p {
+			color: $dark-2;
+		}
+	}
+}
+
+.server-tile-inner {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 14rem;
+	height: 100%;
+}
+
+.server-tile-list {
+	display: flex;
+	flex: 1 0 auto;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.server-tile-item {
+	padding-top: $sp-sm;
+	padding-bottom: $sp-xs;
+
+	&:first-child {
+		padding-top: $sp-xs;
+	}
+	&:last-child {
+		padding-bottom: $sp-sm;
+	}
+	&:only-child {
+		margin-top: -$sp-lg;
+	}
+}

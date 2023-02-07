@@ -1,0 +1,57 @@
+{
+  "Muthalath": {
+    "remote": true,
+    "servers": [
+      {
+        "name": "AWS",
+        "id": "29sk-39090-322",
+        "status": "operational",
+        "upSince": "2022-01-08 09:30",
+        "utilization": 0.725,
+        "diskUsage": 3100,
+        "capacity": 6000,
+        "ram": 24
+      }
+    ]
+  },
+  "Mudavar": {
+    "remote": false,
+    "servers": [
+      {
+        "name": "Server 1",
+        "id": "29sk-39090-321",
+        "status": "operational",
+        "upSince": "2022-03-11 04:30",
+        "utilization": 0.78,
+        "diskUsage": 523,
+        "capacity": 3000,
+        "ram": 12
+      },
+      {
+        "name": "Server 2",
+        "id": "29sk-39091-023",
+        "status": "warning",
+        "upSince": "2022-05-08 03:30",
+        "utilization": 0.67,
+        "diskUsage": 2600,
+        "capacity": 3000,
+        "ram": 12
+      }
+    ]
+  },
+  "Muraba": {
+    "remote": false,
+    "servers": [
+      {
+        "name": "Server 3",
+        "id": "29sk-39083-327",
+        "status": "down",
+        "upSince": null,
+        "utilization": 1,
+        "diskUsage": 3000,
+        "capacity": 3000,
+        "ram": 12
+      }
+    ]
+  }
+}

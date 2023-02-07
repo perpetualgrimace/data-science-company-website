@@ -1,0 +1,35 @@
+.tooltip {
+  padding: $sp-sm;
+  background-color: $dark-3;
+  border: 1px solid $dark-2;
+  border-radius: $radius-md;
+  box-shadow: 0 1px 12px 0 rgba($black, 0.5);
+
+  &:before {
+    @include pseudo;
+    width: 1.5rem;
+    height: 1.5rem;
+    position: absolute;
+    transform: translateX(-50%) rotate(45deg);
+    top: -0.7625rem;
+    left: 50%;
+    background-color: $dark-3;
+    border-top: 1px solid $dark-2;
+    border-left: 1px solid $dark-2;
+    border-top-left-radius: $radius-md;
+  }
+
+  &.is-auto-positioned {
+    @include absolute-horizontal-center;
+    position: fixed;
+    width: max-content;
+    pointer-events: none;
+    z-index: 11;
+    transform-origin: -50% -20%;
+    animation: scale-up 0.15s ease-out;
+  }
+}
+
+.tooltip-label + .tooltip-description {
+  margin-top: -$sp-sm;
+}

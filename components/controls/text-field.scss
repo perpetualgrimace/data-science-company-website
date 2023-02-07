@@ -1,0 +1,28 @@
+.text-field-label {
+  font-size: $bold-weight;
+  color: $white;
+}
+
+.text-field-input {
+  padding: $sp-xxs $sp-xs;
+  color: $light-1;
+  background-color: $dark-3;
+  border: 1px solid $gray;
+  border-radius: $radius-sm;
+}
+
+.text-field-alert {
+  position: absolute;
+  right: 0;
+  bottom: -2em;
+  color: $salmon-light;
+
+  svg {
+    width: 1.25em;
+    top: -1px;
+  }
+
+  path {
+    fill: $salmon-md;
+  }
+}

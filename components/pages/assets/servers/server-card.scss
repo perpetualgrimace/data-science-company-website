@@ -1,0 +1,43 @@
+.server-card {
+  display: flex;
+  justify-content: space-between;
+  padding: $sp-xs 0;
+}
+
+.server-card-col {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 $sp-lg;
+
+  &:not(:first-child) {
+    border-left: 1px solid $dark-2;
+
+    h3 {
+      margin-top: 0.375em; // magic number to align heading baseline
+    }
+  }
+}
+
+// tooltip overrides
+.server-tooltip {
+  padding-left: 0;
+  padding-right: 0;
+
+  &:before, &:after {
+    will-change: left;
+    transition:
+      transform 0.3s ease-out,
+      left 0.3s ease-out;
+  }
+
+  &.Muthalath-is-selected:before {
+    transform: translateX(12.5vw) rotate(45deg);
+    left: 0;
+  }
+  &.Muraba-is-selected:before {
+    transform: translateX(77.5vw) rotate(45deg);
+    left: 0;
+  }
+}

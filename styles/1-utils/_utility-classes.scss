@@ -1,0 +1,75 @@
+//////////////////////////////////
+// ACCESSIBILITY
+//////////////////////////////////
+
+.u-visually-hidden {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+//////////////////////////////////
+// TYPOGRAPHY
+//////////////////////////////////
+
+.u-title     { @include title-text;   }
+.u-heading   { @include heading-text; }
+.u-subhead   { @include subhead-text; }
+
+.u-font-xxxl { @include font-xxxl; }
+.u-font-xxl  { @include font-xxl;  }
+.u-font-xl   { @include font-xl;   }
+.u-font-lg   { @include font-lg;   }
+.u-font-md   { @include font-md;   }
+.u-font-sm   { @include font-sm;   }
+.u-font-xs   { @include font-xs;   }
+.u-font-xxs  { @include font-xxs;  }
+
+//////////////////////////////////
+// COLORS
+//////////////////////////////////
+
+.u-malachite-dark-color { color: $malachite-dark !important };
+.u-malachite-md-color { color: $malachite-md !important };
+.u-salmon-dark-color { color: $salmon-dark !important };
+.u-salmon-light-color { color: $salmon-light !important };
+.u-salmon-color { color: $salmon-md !important; }
+
+.u-malachite-darker-bg { background-color: $malachite-darker !important };
+
+//////////////////////////////////
+// SPACING
+//////////////////////////////////
+
+.u-mb-0   { margin-bottom: 0;       }
+.u-mb-xs  { margin-bottom: $sp-xs;  }
+.u-mb-xxs { margin-bottom: $sp-xxs; }
+.u-mb-sm  { margin-bottom: $sp-sm;  }
+.u-mb-md  { margin-bottom: $sp-md;  }
+.u-mb-lg  { margin-bottom: $sp-lg;  }
+.u-mb-xl  { margin-bottom: $sp-xl;  }
+
+.u-mr-0   { margin-right: 0;       }
+.u-mr-xxs { margin-right: $sp-xxs; }
+.u-mr-xs  { margin-right: $sp-xs;  }
+.u-mr-sm  { margin-right: $sp-sm;  }
+.u-mr-md  { margin-right: $sp-md;  }
+.u-mr-lg  { margin-right: $sp-lg;  }
+.u-mr-xl  { margin-right: $sp-xl;  }
+
+.u-m-auto  { margin: auto; }
+.u-mt-auto { margin-top: auto; }
+.u-mr-auto { margin-right: auto; }
+.u-mb-auto { margin-bottom: auto; }
+.u-mh-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.u-mv-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+.u-pb-xl { padding-bottom: $sp-xl; }

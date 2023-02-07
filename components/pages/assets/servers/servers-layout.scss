@@ -1,0 +1,48 @@
+//////////////////////////////////
+// SERVERS
+//////////////////////////////////
+
+.servers-wrapper {
+	margin-top: -$sp-sm;
+}
+
+$server-grid-gutter: 5vw;
+$server-arrow-width: 0.75rem;
+
+.servers-grid {
+	// grid fallback
+	.server-tile:not(:last-child) {
+		margin-bottom: $sp-md;
+	}
+
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: $server-grid-gutter;
+
+		.server-tile:not(:last-child) {
+			margin-bottom: 0; // reset fallback layout
+
+			// arrow linking server tiles
+			&:before,
+			&:after {
+				@include pseudo;
+				@include absolute-vertical-center;
+			}
+			&:before {
+				border-bottom: 4px solid $light-2;
+				width: calc(#{$server-grid-gutter} - #{$server-arrow-width});
+				left: 100%;
+				z-index: -1;
+			}
+			&:after {
+				border-top: $server-arrow-width / 2 solid transparent;
+				border-bottom: $server-arrow-width / 2 solid transparent;
+				border-left: $server-arrow-width solid $light-2;
+				width: 0;
+				height: 0;
+				right: -$server-grid-gutter;
+			}
+		}
+	}
+}

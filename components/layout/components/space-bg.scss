@@ -1,0 +1,11 @@
+.space-bg {
+  @include absolute-expand;
+  min-height: calc(100vh - $navbar-height);
+  z-index: -2;
+}
+
+.space-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

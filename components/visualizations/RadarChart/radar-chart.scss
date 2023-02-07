@@ -1,0 +1,38 @@
+@mixin radar-layout {
+  max-width: 14rem;
+  margin: auto;
+  padding: 1px; // needed because reasons
+
+  svg {
+    display: block;
+    margin: $sp-md auto;
+  }
+
+  .stat {
+    position: absolute;
+    margin: 0;
+
+    // horizontal placement
+    &:first-of-type, &:last-of-type {
+      @include absolute-horizontal-center;
+    }
+    &:nth-of-type(3), &:nth-of-type(5) {
+      right: 0;
+    }
+
+    // vertical placement
+    &:first-of-type { top: 0; }
+    &:nth-of-type(2), &:nth-of-type(3) { top: 36px; }
+    &:nth-of-type(4), &:nth-of-type(5) { top: 78px; }
+    &:last-of-type { bottom: 0; }
+  }
+}
+
+.radar-chart {
+  @media (min-width: 300px) and (max-width: 499px) {
+    @include radar-layout;
+  }
+  @media (min-width: 850px) {
+    @include radar-layout;
+  }
+}

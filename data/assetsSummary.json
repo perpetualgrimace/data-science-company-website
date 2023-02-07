@@ -1,0 +1,24 @@
+{
+  "serverStats": [
+    { "label": "local servers", "value": 3 },
+    { "label": "remote servers", "value": 1 },
+    { "label": "fully operational servers", "value": 3 },
+    { "label": "warnings", "value": 1 },
+    { "label": "critical errors", "value": 1 }
+  ],
+  "dataStats": [
+    { "label": "tables", "value": 291 },
+    { "label": "data marts", "value": 4 },
+    { "label": "sources", "value": 19 },
+    { "label": "average data mart quality", "value": 4.0 }
+  ],
+  "engineStats": [
+    { "label": "engines", "value": 4 },
+    { "label": "average predictiveness", "value": 0.62 }
+  ],
+  "engagementStats": [
+    { "label": "completed engagements", "value": 0 },
+    { "label": "incomplete engagements", "value": 4 },
+    { "label": "active tasks", "value": 17 }
+  ]
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "data-mart-1",
+    "name": "Data mart 1",
+    "source": "source 1",
+    "created": "2022-01-08",
+    "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "quality": {
+      "overall": 4.2,
+      "completeness": 3.0,
+      "uniqueness": 2.5,
+      "timeliness": 4.0,
+      "validity": 3.0,
+      "accuracy": 4.0,
+      "consistency": 1.0
+    },
+    "tables": [
+      { "id": "GVS62YAC6FL", "name": "Table 1" },
+      { "id": "ETE09XLQ5TI", "name": "Table 2" },
+      { "id": "QFN79IOC5LN", "name": "Table 3" },
+      { "id": "HWJ69XBG3WB", "name": "Table 4" },
+      { "id": "QUB36RKA0PS", "name": "Table 5" }
+    ]
+  },
+  {
+    "id": "data-mart-2",
+    "name": "Data mart 2",
+    "source": "source 2",
+    "created": "2022-04-06",
+    "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "quality": {
+      "overall": 4.3,
+      "completeness": 3.0,
+      "uniqueness": 3.5,
+      "timeliness": 4.0,
+      "validity": 2.0,
+      "accuracy": 4.0,
+      "consistency": 5.0
+    },
+    "tables": [
+      { "id": "OAA50YWJ5WX", "name": "Table 6" },
+      { "id": "DMG70HGL5QK", "name": "Table 7" },
+      { "id": "ATF18OBL2GS", "name": "Table 8" }
+    ]
+  },
+  {
+    "id": "data-mart-3",
+    "name": "Data mart 3",
+    "source": "source 3",
+    "created": "2022-12-08",
+    "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "quality": {
+      "overall": 2.9,
+      "completeness": 0,
+      "uniqueness": 1.5,
+      "timeliness": 2.0,
+      "validity": 3.0,
+      "accuracy": 4.5,
+      "consistency": 3.0
+    },
+    "tables": [
+      { "id": "ATF18OBL2GS", "name": "Table 9" },
+      { "id": "JOT67WJF4JJ", "name": "Table 10" },
+      { "id": "BZG01PQT5ON", "name": "Table 11" },
+      { "id": "UFZ42BDP6SQ", "name": "Table 12" },
+      { "id": "THY38NZU4YL", "name": "Table 13" },
+      { "id": "IFR81KEV5WN", "name": "Table 14" }
+    ]
+  },
+  {
+    "id": "data-mart-4",
+    "name": "Data mart 4",
+    "source": "source 4",
+    "created": "2022-11-03",
+    "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "quality": {
+      "overall": 3.1,
+      "completeness": 1.0,
+      "uniqueness": 3.5,
+      "timeliness": 4.0,
+      "validity": 4.0,
+      "accuracy": 4.0,
+      "consistency": 4.0
+    },
+    "tables": [
+      { "id": "GQN15YUM5GD", "name": "Table 15" },
+      { "id": "JVW20TYP1KZ", "name": "Table 16" }
+    ]
+  }
+]

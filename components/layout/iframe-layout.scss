@@ -1,0 +1,10 @@
+.iframe-layout {
+	max-height: 100vh;
+	overflow: hidden;
+}
+.iframe-layout-iframe {
+	width: 100%;
+	margin-top: 1px;
+	height: calc(100vh - #{$navbar-height} - 1px);
+	border: none;
+}

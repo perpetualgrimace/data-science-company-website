@@ -1,0 +1,31 @@
+.assets-wrapper {
+	// grid fallback
+	@media (min-width: 1000px) {
+		columns: 4;
+	}
+
+	@supports (display: grid) {
+		@media (min-width: 480px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-gap: $sp-md;
+			margin-bottom: $sp-md;
+
+			.tile {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (min-width: 1080px) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-rows: 1fr;
+			grid-gap: $sp-xl;
+			margin-bottom: $sp-xl;
+
+			.tile {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

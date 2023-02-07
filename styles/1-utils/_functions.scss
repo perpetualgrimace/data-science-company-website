@@ -1,0 +1,15 @@
+@function makePrism(
+  $opacity: 1,
+  $dir: to right,
+  $color1: #939AFF,
+  $color2: #7EE787,
+  $color3: #FFA28B
+) {
+  @return linear-gradient(
+    $dir,
+    rgba($color1, $opacity) 0%,
+    rgba($color2, $opacity) 40%,
+    rgba($color2, $opacity) 60%,
+    rgba($color3, $opacity) 100%
+  );
+}

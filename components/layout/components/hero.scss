@@ -1,0 +1,47 @@
+.hero {
+  padding-top: 18%; // maintain aspect ratio
+  min-height: 12rem; // make sure there's room for text on small screens
+  z-index: 1; // fix hidden hero-img on Safari
+}
+
+.hero-inner {
+  @include absolute-center;
+  width: 100%;
+
+  // left align content edge with strike on small screens
+  @media (max-width: 899px) {
+    padding-left: 2.25rem;
+  }
+}
+
+// strike
+.hero-headline:before {
+  @include pseudo;
+  height: 1.21em; // ~48px
+  width: 0.14em; // 10px
+  position: absolute;
+  left: -0.042em;
+  bottom: 0.042em;
+  z-index: -1;
+  transform: skew(-24deg, 0);
+  background-image: $prism-vertical;
+}
+
+.hero-breadcrumb {
+  @include subhead-text;
+  text-decoration: none;
+  position: absolute;
+  top: -1.125rem;
+  left: 3.5rem;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
+.hero-img {
+  @include absolute-expand;
+  @include hue-shift;
+  object-fit: cover;
+  z-index: -1;
+}
