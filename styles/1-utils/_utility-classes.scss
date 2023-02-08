@@ -14,7 +14,11 @@
 // TYPOGRAPHY
 //////////////////////////////////
 
-.u-title     { @include title-text;   }
+.u-title {
+	@include title-text;
+	padding-bottom: $sp-xs;
+}
+
 .u-heading   { @include heading-text; }
 .u-subhead   { @include subhead-text; }
 
@@ -27,10 +31,14 @@
 .u-font-xs   { @include font-xs;   }
 .u-font-xxs  { @include font-xxs;  }
 
+.u-text-c   { text-align: center; }
+.u-text-l-c { @media (min-width: 600px) { text-align: center; } }
+
 //////////////////////////////////
 // COLORS
 //////////////////////////////////
 
+.u-cornflower-color { color: $cornflower-md !important; }
 .u-malachite-dark-color { color: $malachite-dark !important };
 .u-malachite-md-color { color: $malachite-md !important };
 .u-salmon-dark-color { color: $salmon-dark !important };
@@ -38,6 +46,7 @@
 .u-salmon-color { color: $salmon-md !important; }
 
 .u-malachite-darker-bg { background-color: $malachite-darker !important };
+
 
 //////////////////////////////////
 // SPACING

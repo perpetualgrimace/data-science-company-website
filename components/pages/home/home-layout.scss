@@ -1,77 +1,21 @@
-@supports (display: grid) {
-	@media (min-width: 360px) {
-		.home-section .home-list {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			grid-gap: 1rem;
+.home-wrapper .section {
+  min-height: calc(100vh - #{$navbar-height});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: $sp-xl;
+  padding-bottom: $sp-xl;
 
-			.home-item .tile {
-				margin-bottom: 0;
-				min-height: 11rem;
-			}
-		}
-		.home-section:first-of-type .home-item:first-of-type  { grid-column: 1/3; }
-		.home-section:first-of-type .home-item:nth-of-type(2) { grid-column: 1/2; }
-		.home-section:first-of-type .home-item:last-of-type   { grid-column: 2/3; }
-	}
-
-	// 2 columns
-	@media (min-width: 600px) {
-		.home-wrapper {
-			display: grid;
-			grid-template-columns: 1fr 2rem 1fr;
-		}
-
-		.home-section:nth-child(1) { grid-column: 1/4; }
-		.home-section:nth-child(2) { grid-column: 1/4; }
-
-		.home-heading {
-			text-align: center;
-		}
-
-		.home-item:last-child .tile {
-			margin-bottom: 0;
-		}
-	}
-
-	// 3 columns
-	@media (min-width: 900px) {
-		.home-wrapper {
-			grid-template-columns: 1fr 1fr;
-			grid-gap: $sp-xl;
-		}
-
-		.home-section:nth-child(1) { grid-column: 1/2; }
-		.home-section:nth-child(2) { grid-column: 2/3; }
-
-		// equal height columns
-		.home-section,
-		.home-list {
-			display: flex;
-			flex-direction: column;
-		}
-		.home-list,
-		.home-item:only-child,
-		.home-item:only-child > .tile {
-			height: 100%;
-		}
-	}
+  a {
+    font-weight: $bold-weight;
+  }
 }
 
+.home-intro-section .darkglass {
+  padding: $sp-md $sp-lg 0 $sp-lg;
 
-// manage home page overrides
-.home-section:only-child .home-list {
-	@media (min-width: 700px) {
-		grid-template-columns: 1fr 1fr 1fr;
-
-		.home-item:first-child {
-			grid-column: 1/2;
-		}
-		.home-item:nth-child(2) {
-			grid-column: 2/3;
-		}
-		.home-item:last-child {
-			grid-column: 3/4;
-		}
-	}
+  @media (min-width: 700px) {
+    padding-left: $sp-xxl;
+    padding-right: $sp-xxl;
+  }
 }
