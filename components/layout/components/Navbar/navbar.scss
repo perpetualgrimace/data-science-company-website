@@ -23,12 +23,14 @@
   flex-wrap: wrap;
   align-items: stretch;
   justify-content: space-between;
+  height: $navbar-height;
 }
 
 .navbar-logo {
   width: 9.7rem;
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .navbar-list {
