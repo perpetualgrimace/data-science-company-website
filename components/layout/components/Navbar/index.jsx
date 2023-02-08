@@ -20,11 +20,11 @@ export default function Navbar() {
             aria-current={checkRoute("/", currRoute)}
           >
             <img
-              src={`/${pathPrefix}/logo-horizontal.png`}
+              src={`/${pathPrefix}/logo.png`}
               srcSet={`
-                /${pathPrefix}/logo-horizontal.png 1x,
-                /${pathPrefix}/logo-horizontal@2x.png 2x`}
-              alt="Mu, home"
+                /${pathPrefix}/logo.png 1x,
+                /${pathPrefix}/logo@2x.png 2x`}
+              alt="Andalusia, home"
               draggable="false"
             />
           </a>
