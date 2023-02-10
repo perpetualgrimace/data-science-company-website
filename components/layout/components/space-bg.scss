@@ -1,5 +1,6 @@
 .space-bg {
   @include absolute-expand;
+  position: fixed;
   min-height: calc(100vh - $navbar-height);
   z-index: -2;
 }

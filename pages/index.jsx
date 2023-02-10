@@ -1,10 +1,19 @@
 import DefaultLayout from "/components/layout/DefaultLayout";
 
+import Diamond from "/components/layout/components/Diamond";
+import DiamondCard from "/components/layout/components/DiamondCard";
 import IconBullet from "/components/common/IconBullet";
+
 import ExpandHorizontalIcon from "/components/icons/ExpandHorizontalIcon";
 import JupyterIcon from "/components/icons/JupyterIcon";
 import UXIcon from "/components/icons/UXIcon";
 import ExpandVerticalIcon from "/components/icons/ExpandVerticalIcon";
+import TerminalIcon from "/components/icons/TerminalIcon";
+import DBSearchIcon from "/components/icons/DBSearchIcon";
+import SpeedIcon from "/components/icons/SpeedIcon";
+import HomeIcon from "/components/icons/HomeIcon";
+import CreditCardIcon from "/components/icons/CreditCardIcon";
+import CloudIcon from "/components/icons/CloudIcon";
 
 export default function Home() {
   return (
@@ -44,6 +53,56 @@ export default function Home() {
             Icon={<ExpandVerticalIcon />}
           />
         </div>
+      </section>
+
+      <section className="section home-interfaces-section u-text-l">
+        <h2 className="u-text-c u-title">Interfaces</h2>
+
+        <Diamond>
+          <DiamondCard
+            title="Code"
+            subtitle="computational documents with Jupyter Notebook"
+            theme="cornflower"
+            Icon={<TerminalIcon />}
+          />
+          <DiamondCard
+            title="Explore & visualize"
+            subtitle="data using Apache Superset"
+            theme="salmon"
+            Icon={<DBSearchIcon />}
+          />
+          <DiamondCard
+            title="Improve performance"
+            subtitle="of your existing tools with Andalusia computation and storage resources"
+            theme="malachite"
+            Icon={<SpeedIcon />}
+          />
+        </Diamond>
+      </section>
+
+      <section className="section home-interfaces-section u-text-l">
+        <h2 className="u-text-c u-title">Deployment options</h2>
+
+        <Diamond>
+          <DiamondCard
+            title="Deploy"
+            subtitle="on your own environment"
+            theme="cornflower"
+            Icon={<HomeIcon />}
+          />
+          <DiamondCard
+            title="Buy"
+            subtitle="a pre-deployed version on Andalusia-procured hardware"
+            theme="salmon"
+            Icon={<CreditCardIcon />}
+          />
+          <DiamondCard
+            title="Access"
+            subtitle="Andalusia using an on-soil cloud provider"
+            theme="malachite"
+            Icon={<CloudIcon />}
+          />
+        </Diamond>
       </section>
     </DefaultLayout>
   );
