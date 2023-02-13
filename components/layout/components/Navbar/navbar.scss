@@ -31,6 +31,15 @@
   display: flex;
   align-items: center;
   margin: auto;
+
+  &[aria-current="page"]:after {
+    @include pseudo;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -0.4rem;
+    background: $prism;
+  }
 }
 
 .navbar-list {
