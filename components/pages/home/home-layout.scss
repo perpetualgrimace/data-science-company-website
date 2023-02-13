@@ -1,16 +1,3 @@
-.home-wrapper .section {
-  min-height: calc(100vh - #{$navbar-height});
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-top: $sp-xl;
-  padding-bottom: $sp-xl;
-
-  a {
-    font-weight: $bold-weight;
-  }
-}
-
 .home-intro-section .darkglass {
   padding: $sp-md $sp-lg 0 $sp-lg;
 

@@ -18,7 +18,7 @@ import CloudIcon from "/components/icons/CloudIcon";
 export default function Home() {
   return (
     <DefaultLayout slug="home">
-      <section className="section home-intro-section u-text-l">
+      <section className="fullscreen-section home-intro-section u-text-l">
         <h1 className="u-text-c u-title">
           Modern data science for restrictive environments
         </h1>
@@ -55,7 +55,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section home-interfaces-section u-text-l">
+      <section className="fullscreen-section home-interfaces-section u-text-l">
         <h2 className="u-text-c u-title">Interfaces</h2>
 
         <Diamond>
@@ -80,7 +80,7 @@ export default function Home() {
         </Diamond>
       </section>
 
-      <section className="section home-interfaces-section u-text-l">
+      <section className="fullscreen-section home-interfaces-section u-text-l">
         <h2 className="u-text-c u-title">Deployment options</h2>
 
         <Diamond>

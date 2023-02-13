@@ -14,3 +14,16 @@
 		z-index: 1;
 	}
 }
+
+.fullscreen-section {
+  min-height: calc(100vh - #{$navbar-height});
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: $sp-xl;
+  padding-bottom: $sp-xl;
+
+  a {
+    font-weight: $bold-weight;
+  }
+}
