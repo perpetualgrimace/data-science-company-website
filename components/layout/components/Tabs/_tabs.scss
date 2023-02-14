@@ -1,0 +1,52 @@
+.tabs-list {
+  display: flex;
+  width: 100%;
+}
+
+.tabs-button {
+  flex: 1 0 33.333%;
+  line-height: 2.3rem;
+  color: $light-3;
+  border-bottom: 2px solid $dark-2;
+  transition:
+    0.2s ease-out color,
+    0.2s ease-out border-color;
+
+  > svg {
+    width: 1.375em;
+    top: -1px;
+    margin-right: $sp-xxs;
+
+    > path {
+      fill: currentColor;
+    }
+  }
+
+  &[aria-selected="true"] {
+    border-image: makePrism() 1;
+  }
+  &[aria-selected="true"],
+  &:hover, &:focus {
+    color: $light-1;
+    border-bottom-color: currentColor;
+    transition: 0.1s ease-out transform;
+
+    &.cornflower-theme { color: $cornflower-md; }
+    &.salmon-theme { color: $salmon-md; }
+    &.malachite-theme { color: $malachite-md; }
+
+    > svg {
+      transform: scale(1.1);
+    }
+  }
+}
+
+
+@media (max-width: 539px) {
+  .tabs-button > svg {
+    width: 1.375rem;
+  }
+  .tabs-button-text {
+    @include visually-hidden;
+  }
+}

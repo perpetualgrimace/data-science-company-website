@@ -47,7 +47,9 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
       >
         {tabs?.map((tab, index) => (
           <button
-            className="tabs-button"
+            className={`tabs-button u-subhead u-font-sm${
+              tab?.theme ? ` ${tab.theme}-theme` : ""
+            }`}
             key={`tab-${index}`}
             onClick={() => handleClick(index)}
             role="tab"
@@ -60,7 +62,7 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
             tabIndex={currentIndex === index ? 0 : -1}
           >
             {tab?.Icon}
-            {tab?.buttonText}
+            <span className="tabs-button-text">{tab?.buttonText}</span>
           </button>
         ))}
       </div>
