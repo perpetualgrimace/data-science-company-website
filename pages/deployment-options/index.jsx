@@ -71,7 +71,7 @@ const tabs = [
 export default function DeploymentOptions() {
   return (
     <DefaultLayout slug="deployment-options">
-      <section className="fullscreen-section deployment-options-section u-text-l">
+      <section className="padded-section deployment-options-section u-text-l">
         <h1 className="u-text-c u-title">Deployment options</h1>
 
         <Tabs tabs={tabs} fontSize="lg" />

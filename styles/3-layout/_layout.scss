@@ -27,3 +27,8 @@
     font-weight: $bold-weight;
   }
 }
+
+.padded-section {
+  padding-top: calc(#{$sp-lg} + 5vh);
+  padding-bottom: calc(#{$sp-lg} + 5vh);
+}

@@ -70,51 +70,53 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
       <div className="tabs-panel">
         {tabs?.map((tab, index) => (
           <section
-            className="tabs-section"
+            className={`tabs-section${
+              tab?.theme ? ` ${tab.theme}-theme` : ""
+            }`}
             key={`tabpanel-${index}`}
             hidden={currentIndex !== index}
             role="tabpanel"
             aria-labelledby={`tab-id${index}`}
             id={`panel-id-${index}`}
-            tabIndex={0}
           >
             <TabsHero
               title={tab?.title}
               subtitle={tab?.subtitle}
               imgSlug={tab?.slug}
             />
-            <div className={`tabs-section-content u-font-${fontSize}`}>
-              {tab?.content}
+            <div className="tabs-section-inner wrapper">
+              <div className={`tabs-section-content u-font-${fontSize}`}>
+                {tab?.content}
+              </div>
+
+              {tab?.logos?.length > 0 && (
+                <aside className="tabs-section-logos">
+                  <h3 className="tabs-section-logos-headline u-font-md">
+                    Technologies used:
+                  </h3>
+
+                  <div className="tabs-section-logos-list">
+                    {tab.logos.map((logo) => (
+                      <Link
+                        key={logo?.slug}
+                        href={logo?.url ? logo.url : ""}
+                        passHref
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <a className="tabs-section-logos-link u-font-xl">
+                          <img
+                            className="tabs-section-logos-img"
+                            src={`/${logo?.slug}`}
+                            alt={logo?.alt}
+                          />
+                        </a>
+                      </Link>
+                    ))}
+                  </div>
+                </aside>
+              )}
             </div>
-
-            {tab?.logos?.length > 0 && (
-              <aside className="tabs-section-logos">
-                <h3 className="tabs-section-logos-headline">
-                  Technologies used:
-                </h3>
-
-                {tab.logos.map((logo) =>
-                  logo.url ? (
-                    <Link key={logo?.slug} href={logo?.url} passHref>
-                      <a className="tabs-section-logos-link">
-                        <img
-                          className="tabs-section-logos-img"
-                          src={`/${logo?.slug}`}
-                          alt={logo?.alt}
-                        />
-                      </a>
-                    </Link>
-                  ) : (
-                    <img
-                      key={`${logo?.slug}-img-only`}
-                      className="tabs-section-logos-img"
-                      src={`/${logo?.slug}`}
-                      alt={logo?.alt}
-                    />
-                  )
-                )}
-              </aside>
-            )}
           </section>
         ))}
       </div>

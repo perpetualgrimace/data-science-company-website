@@ -85,9 +85,9 @@ const tabs = [
         </p>
         <p>
           If you currently use software that can benefit from Andalusia,
-          please{" "}
+          please 
           <Link href="/contact" passHref>
-            <a>contact us</a>
+            <a>contact us</a>
           </Link>
           .
         </p>
@@ -123,7 +123,7 @@ const tabs = [
 export default function Interfaces() {
   return (
     <DefaultLayout slug="interfaces">
-      <section className="fullscreen-section interfaces-section u-text-l">
+      <section className="padded-section interfaces-section u-text-l">
         <h1 className="u-text-c u-title">Interfaces</h1>
 
         <Tabs tabs={tabs} fontSize="md" />

@@ -1,3 +1,11 @@
+$logo-column-width: 12rem;
+
+.tabs {
+  @media (min-width: 600px) {
+    min-height: 23.5rem; // prevent jank when changing tabs
+  }
+}
+
 .tabs-list {
   display: flex;
   width: 100%;
@@ -40,8 +48,6 @@
     }
   }
 }
-
-
 @media (max-width: 539px) {
   .tabs-button > svg {
     width: 1.375rem;
@@ -49,4 +55,71 @@
   .tabs-button-text {
     @include visually-hidden;
   }
+}
+
+.tabs-section.cornflower-theme a {
+  color: $cornflower-md;
+  &:hover, &:focus {
+    color: $cornflower-light;
+  }
+}
+.tabs-section.salmon-theme a {
+  color: $salmon-md;
+  &:hover, &:focus {
+    color: $salmon-light;
+  }
+}
+.tabs-section.malachite-theme a {
+  color: $malachite-md;
+  &:hover, &:focus {
+    color: $malachite-light;
+  }
+}
+
+
+.tabs-section-inner {
+  padding-top: $sp-sm;
+  padding-bottom: $sp-sm;
+}
+@media (min-width: 600px) {
+  .tabs-section-inner {
+    display: flex;
+    align-items: baseline;
+    padding-top: $sp-lg;
+    padding-bottom: $sp-sm;
+  }
+  .tabs-section-content {
+    flex: 1 0 calc(100% - #{$logo-column-width});
+    flex-wrap: wrap;
+    padding-right: $sp-xl;
+  }
+  .tabs-section-logos {
+    flex: 1 0 $logo-column-width;
+  }
+}
+
+.tabs-section-content > * {
+  line-height: 1.75;
+  margin-bottom: 0.75em;
+
+  &:not([class*="u-font"]) {
+    font-size: inherit;
+  }
+}
+
+@media (max-width: 599px) {
+  .tabs-section-logos-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.tabs-section-logos-link {
+  display: block;
+  width: max-content;
+  padding: $sp-xs $sp-md;
+  top: -$sp-xs;
+  left: -$sp-md;
+}
+.tabs-section-logos-img {
+  display: inline-block;
 }
