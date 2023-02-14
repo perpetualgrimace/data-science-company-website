@@ -1,0 +1,17 @@
+.tag {
+  display: inline-block;
+  padding: 0.15em 0.625em 0.1em 0.625em;
+  border-radius: $radius-lg;
+  color: $white;
+  background-color: $cornflower-dark;
+  border: 2px solid $cornflower-md;
+
+  &.malachite-theme {
+    background-color: $malachite-dark;
+    border-color: $malachite-md;
+  }
+  &.salmon-theme {
+    background-color: $salmon-dark;
+    border-color: $salmon-md;
+  }
+}
