@@ -4,7 +4,7 @@ export default function TabsHero(props) {
   const { title, subtitle, imgSlug } = props;
 
   return (
-    <header className="tabs-hero" role="banner">
+    <header className="tabs-hero">
       <div className="tabs-hero-inner wrapper">
         <h2 className="tabs-hero-title">
           <span className="tabs-hero-title-text">
@@ -18,10 +18,10 @@ export default function TabsHero(props) {
       {imgSlug && (
         <img
           className="tabs-hero-img"
-          src={`/${pathPrefix}/tabs/${imgSlug}-tabs.png`}
+          src={`/${pathPrefix}/tabs/${imgSlug}.jpg`}
           srcSet={`
-            /${pathPrefix}/tabs/${imgSlug}-tabs.png 1x,
-            /${pathPrefix}/tabs/${imgSlug}-tabs@2x.png 2x`}
+            /${pathPrefix}/tabs/${imgSlug}.jpg 1x,
+            /${pathPrefix}/tabs/${imgSlug}@2x.jpg 2x`}
           alt=""
           draggable="false"
           loading="lazy"

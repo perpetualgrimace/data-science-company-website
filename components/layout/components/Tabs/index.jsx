@@ -81,7 +81,7 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
             <TabsHero
               title={tab?.title}
               subtitle={tab?.subtitle}
-              imageSlug={tab?.slug}
+              imgSlug={tab?.slug}
             />
             <div className={`tabs-section-content u-font-${fontSize}`}>
               {tab?.content}

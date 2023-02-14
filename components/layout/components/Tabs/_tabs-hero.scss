@@ -1,0 +1,30 @@
+.tabs-hero {
+  min-height: 6rem;
+  z-index: 1; // fix hidden hero-img on Safari
+}
+
+.tabs-hero-inner {
+  @include absolute-center;
+  display: flex;
+  width: 100%;
+}
+
+.tabs-hero-title {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.tabs-hero-title-text,
+.tabs-hero-title-subtitle {
+  display: block;
+}
+.tabs-hero-title-subtitle {
+  font-weight: $body-weight;
+  color: rgba($white, 0.666);
+  margin-bottom: 0.75em; // fudge title vertical alignment
+}
+
+.tabs-hero-img {
+  @include absolute-expand;
+  object-fit: cover;
+  z-index: -1;
+}
