@@ -62,21 +62,21 @@ export default function Home() {
           <DiamondCard
             title="Code"
             subtitle="computational documents with Jupyter Notebook"
-            slug="/interfaces?activetab=code"
+            slug="/interfaces#activeTab=0"
             theme="cornflower"
             Icon={<TerminalIcon />}
           />
           <DiamondCard
             title="Explore & visualize"
             subtitle="data using Apache Superset"
-            slug="/interfaces?activetab=explore-and-visualize"
+            slug="/interfaces#activeTab=1"
             theme="salmon"
             Icon={<DBSearchIcon />}
           />
           <DiamondCard
             title="Improve performance"
             subtitle="of your existing tools with Andalusia computation and storage resources"
-            slug="/interfaces?activetab=improve-performance"
+            slug="/interfaces#activeTab=2"
             theme="malachite"
             Icon={<SpeedIcon />}
           />
@@ -90,21 +90,21 @@ export default function Home() {
           <DiamondCard
             title="Deploy"
             subtitle="on your own environment"
-            slug="/deployment-options?activetab=deploy"
+            slug="/deployment-options#activeTab=0"
             theme="cornflower"
             Icon={<HomeIcon />}
           />
           <DiamondCard
             title="Buy"
             subtitle="a pre-deployed version on Andalusia-procured hardware"
-            slug="/deployment-options?activetab=buy"
+            slug="/deployment-options#activeTab=1"
             theme="salmon"
             Icon={<CreditCardIcon />}
           />
           <DiamondCard
             title="Access"
             subtitle="Andalusia using an on-soil cloud provider"
-            slug="/deployment-options?activetab=access"
+            slug="/deployment-options#activeTab=2"
             theme="malachite"
             Icon={<CloudIcon />}
           />

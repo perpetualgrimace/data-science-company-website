@@ -1,12 +1,16 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
+import { useAtom } from "jotai";
 import Link from "next/link";
+
+import { activeTabAtom } from "/helpers/atoms/activeTabAtom";
 
 import TabsHero from "./TabsHero";
 
-const Tabs = ({ fontSize, tabs, defaultIndex }) => {
-  const [currentIndex, setcurrentIndex] = useState(defaultIndex ?? 0);
+// TODO: investigate incorrect initial tab on page load
+const Tabs = ({ fontSize, tabs }) => {
+  const [currentIndex, setCurrentIndex] = useAtom(activeTabAtom);
 
-  const handleClick = (index) => setcurrentIndex(index);
+  const handleClick = (index) => setCurrentIndex(index);
   const tabRefs = useRef({});
 
   const setIndex = (index) => {
@@ -58,7 +62,7 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
             aria-selected={currentIndex === index}
             id={`tab-id-${index}`}
             onKeyDown={onKeyDown}
-            onFocus={() => setcurrentIndex(index)}
+            onFocus={() => setCurrentIndex(index)}
             tabIndex={currentIndex === index ? 0 : -1}
           >
             {tab?.Icon}
@@ -66,7 +70,6 @@ const Tabs = ({ fontSize, tabs, defaultIndex }) => {
           </button>
         ))}
       </div>
-
       <div className="tabs-panel">
         {tabs?.map((tab, index) => (
           <section
