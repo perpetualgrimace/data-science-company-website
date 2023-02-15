@@ -122,8 +122,8 @@
 
 @mixin fancy-outline(
 	$offset: 1px,
-	$color: $prism-transparent,
-	$radius: $radius-md
+	$color: $prism,
+	$radius: $radius-lg
 ) {
 	@include pseudo;
   position: absolute;
