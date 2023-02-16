@@ -1,0 +1,15 @@
+.text-section-inner {
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: $sp-lg $sp-xl;
+}
+
+.text-section-inner > * {
+  font-size: inherit;
+  line-height: 1.5;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}
