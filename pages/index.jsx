@@ -18,6 +18,8 @@ import CloudIcon from "/components/icons/CloudIcon";
 const sections = [
   {
     title: "Modern data science for restrictive environments",
+    shortTitle: "Why Andalusia?",
+    slug: "intro",
     subtitle: "Why Andalusia platform?",
     layout: "intro",
     bullets: [
@@ -50,6 +52,7 @@ const sections = [
   },
   {
     title: "Interfaces",
+    slug: "interfaces",
     layout: "diamond",
     cards: [
       {
@@ -82,6 +85,7 @@ const sections = [
         About <span className="u-visually-hidden">Andalusia</span>
       </>
     ),
+    slug: "about-andalusia",
     text: (
       <>
         <p>
@@ -100,6 +104,7 @@ const sections = [
   },
   {
     title: "Deployment options",
+    slug: "deployment-options",
     layout: "diamond",
     cards: [
       {
@@ -131,7 +136,9 @@ function generateLayout(section) {
   if (section?.layout === "intro") {
     return (
       <IntroSection
+        key={section?.title}
         title={section?.title}
+        slug={section?.slug}
         subtitle={section?.subtitle}
         bullets={section?.bullets}
       />
@@ -140,20 +147,31 @@ function generateLayout(section) {
   // diamond section
   else if (section?.layout === "diamond") {
     return (
-      <DiamondSection title={section?.title} cards={section?.cards} />
+      <DiamondSection
+        key={section?.title}
+        title={section?.title}
+        slug={section?.slug}
+        cards={section?.cards}
+      />
     );
   }
   // text section assumed
   else {
     return (
-      <TextSection title={section?.title}>{section?.text}</TextSection>
+      <TextSection
+        key={section?.title}
+        title={section?.title}
+        slug={section?.slug}
+      >
+        {section?.text}
+      </TextSection>
     );
   }
 }
 
 export default function Home() {
   return (
-    <DefaultLayout slug="home">
+    <DefaultLayout slug="home" sections={sections}>
       {sections?.map((section) => generateLayout(section))}
     </DefaultLayout>
   );

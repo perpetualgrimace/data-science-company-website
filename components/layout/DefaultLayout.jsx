@@ -1,9 +1,10 @@
 import Meta from "./components/Meta";
 import Navbar from "./components/Navbar";
+import Subnav from "./components/Subnav";
 import SpaceBG from "./components/SpaceBG";
 
 export default function DefaultLayout(props) {
-  const { title, slug, children } = props;
+  const { title, slug, sections, children } = props;
 
   return (
     <div className={`${slug}-layout default-layout`}>
@@ -19,6 +20,8 @@ export default function DefaultLayout(props) {
           {children}
         </div>
       </main>
+
+      {sections && <Subnav sections={sections} />}
 
       <SpaceBG />
     </div>

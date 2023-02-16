@@ -1,0 +1,57 @@
+.subnav {
+  position: fixed;
+  height: 2em;
+  right: $sp-xs; bottom: $sp-xs; left: $sp-xs;
+  border-radius: 2rem;
+  z-index: 11;
+}
+
+.subnav-list {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0.125rem;
+}
+
+.subnav-link {
+  display: flex;
+  align-items: center;
+  padding-left: $sp-xs;
+  padding-right: $sp-xs;
+  text-decoration: none;
+  line-height: 2em;
+  color: $light-3;
+  transition: color 0.2s ease-out;
+
+  &:hover, &:focus, &:active {
+    color: $white;
+  }
+
+  .inactive-subnav-icon {
+    margin-right: 0.5em;
+  }
+
+  .active-subnav-icon {
+    opacity: 0;
+    position: absolute;
+  }
+
+  &:active {
+    .active-subnav-icon {
+      opacity: 1;
+      z-index: 1;
+    }
+  }
+}
+
+.subnav-item > .button {
+  line-height: 1.375rem;
+}
+
+@media (max-width: 619px) {
+  .subnav-text {
+    @include visually-hidden;
+  }
+}
