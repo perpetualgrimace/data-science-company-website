@@ -116,10 +116,16 @@ $logo-column-width: 12rem;
 .tabs-section-logos-link {
   display: block;
   width: max-content;
-  padding: $sp-xs $sp-md;
-  top: -$sp-xs;
+  padding: $sp-xxs $sp-md;
+  top: -$sp-xxs;
   left: -$sp-md;
+  transition: 0.2s ease-out transform;
+
+  &:hover, &:focus {
+    transform: scale(1.0625);
+  }
 }
 .tabs-section-logos-img {
   display: inline-block;
+  height: 2rem;
 }

@@ -110,7 +110,7 @@ const Tabs = ({ fontSize, tabs }) => {
                         <a className="tabs-section-logos-link u-font-xl">
                           <img
                             className="tabs-section-logos-img"
-                            src={`/${logo?.slug}`}
+                            src={`logos/${logo?.slug}.svg`}
                             alt={logo?.alt}
                           />
                         </a>
