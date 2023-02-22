@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { pathPrefix } from "/environment.js";
+
+import RetinaImg from "/components/common/RetinaImg";
 
 export default function Hero(props) {
   const { pageTitle, imgSlug, parentSlug, parentTitle } = props;
@@ -18,16 +19,7 @@ export default function Hero(props) {
         )}
       </div>
       {imgSlug && (
-        <img
-          className="hero-img"
-          src={`/${pathPrefix}/hero/${imgSlug}-hero.png`}
-          srcSet={`
-            /${pathPrefix}/hero/${imgSlug}-hero.png 1x,
-            /${pathPrefix}/hero/${imgSlug}-hero@2x.png 2x`}
-          alt=""
-          draggable="false"
-          loading="lazy"
-        />
+        <RetinaImg className="hero-img" file={`hero/${imgSlug}-hero`} />
       )}
     </header>
   );

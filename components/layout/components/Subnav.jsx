@@ -1,4 +1,4 @@
-import { pathPrefix } from "/environment.js";
+import RetinaImg from "/components/common/RetinaImg";
 
 import Button from "/components/controls/Button";
 
@@ -10,24 +10,17 @@ export default function Subnav(props) {
         {sections.map((link) => (
           <li key={link.title} className="subnav-item">
             <a className="subnav-link" href={`#${link.slug}`}>
-              <img
+              <RetinaImg
                 className="subnav-icon active-subnav-icon"
-                src={`/${pathPrefix}/icons/subnav-icon-active.png`}
-                srcset={`
-                  /${pathPrefix}/icons/subnav-icon-active.png 1x,
-                  /${pathPrefix}/icons/subnav-icon-active@2x.png 2x
-                `}
-                alt=""
+                file="icons/subnav-icon-active"
+                loading="default"
               />
-              <img
+              <RetinaImg
                 className="subnav-icon inactive-subnav-icon"
-                src={`/${pathPrefix}/icons/subnav-icon-inactive.png`}
-                srcset={`
-                  /${pathPrefix}/icons/subnav-icon-inactive.png 1x,
-                  /${pathPrefix}/icons/subnav-icon-inactive@2x.png 2x
-                `}
-                alt=""
+                file="icons/subnav-icon-inactive"
+                loading="default"
               />
+
               <span className="subnav-text u-subhead">
                 {link.shortTitle || link.title}
               </span>

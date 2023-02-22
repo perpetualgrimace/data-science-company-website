@@ -1,4 +1,4 @@
-import { pathPrefix } from "/environment.js";
+import RetinaImg from "/components/common/RetinaImg";
 
 export default function TabsHero(props) {
   const { title, subtitle, imgSlug } = props;
@@ -16,15 +16,10 @@ export default function TabsHero(props) {
         </h2>
       </div>
       {imgSlug && (
-        <img
+        <RetinaImg
           className="tabs-hero-img"
-          src={`/${pathPrefix}/tabs/${imgSlug}.jpg`}
-          srcSet={`
-            /${pathPrefix}/tabs/${imgSlug}.jpg 1x,
-            /${pathPrefix}/tabs/${imgSlug}@2x.jpg 2x`}
-          alt=""
-          draggable="false"
-          loading="lazy"
+          file={`tabs/${imgSlug}`}
+          extension="jpg"
         />
       )}
     </header>

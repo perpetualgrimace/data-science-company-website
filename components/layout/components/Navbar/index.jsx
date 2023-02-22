@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { pathPrefix } from "/environment.js";
 import checkRoute from "/helpers/checkRoute";
+import RetinaImg from "/components/common/RetinaImg";
 
 export default function Navbar() {
   const currRoute = useRouter().pathname;
@@ -15,13 +15,10 @@ export default function Navbar() {
             className="navbar-logo"
             aria-current={checkRoute("/", currRoute)}
           >
-            <img
-              src={`/${pathPrefix}/logo.png`}
-              srcSet={`
-                /${pathPrefix}/logo.png 1x,
-                /${pathPrefix}/logo@2x.png 2x`}
+            <RetinaImg
+              className="navbar-logo-img"
+              file="logo"
               alt="Andalusia, home"
-              draggable="false"
             />
           </a>
         </Link>
