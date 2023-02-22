@@ -5,7 +5,7 @@
   padding: $sp-lg $sp-xl;
 }
 
-.text-section-inner > * {
+.text-section-inner > *:not([class*="u-font-"]) {
   font-size: inherit;
   line-height: 1.5;
 

@@ -20,6 +20,7 @@ export default function IntroSection(props) {
             text={bullet?.text}
             theme={bullet?.theme}
             Icon={bullet?.Icon}
+            moreHref={bullet?.moreHref}
           />
         ))}
       </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DefaultLayout from "/components/layout/DefaultLayout";
 
 import IntroSection from "/components/layout/components/IntroSection";
@@ -40,9 +41,9 @@ const sections = [
         text: "Andalusia keeps developers happy by solving complex load management problems.",
         theme: "cornflower",
         Icon: <ExpandHorizontalIcon />,
+        moreHref: "/load-management",
       },
       {
-        moreHref: "/load-management",
         title: "Run small or large deployments",
         text: "Scale up or down as your needs change. Pay for what you use.",
         theme: "malachite",
@@ -99,6 +100,11 @@ const sections = [
           stores and computation from inflexible systems that have
           potential access risk.
         </p>
+        <Link href="/system-diagram" passHref>
+          <a className={`u-font-lg u-cornflower-color`}>
+            View system diagram →
+          </a>
+        </Link>
       </>
     ),
   },
