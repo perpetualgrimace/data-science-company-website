@@ -1,7 +1,7 @@
 .navbar {
   background-color: $dark-3;
   box-shadow: 0 1px 0 $dark-2;
-  z-index: 2;
+  z-index: 12;
 
   // fixed navbar on big screens
   // @media (min-width: 900px), (min-height: 900px) {
@@ -45,4 +45,76 @@
 .navbar-list {
   display: flex;
   right: -$navbar-link-padding;
+}
+
+.navbar-toggle {
+  @include absolute-vertical-center;
+  padding: $sp-sm;
+  left: calc(2vw + #{$sp-sm});
+}
+
+.navbar-menu {
+  position: fixed;
+  border-radius: 0;
+  top: 0; right: 0; bottom: 0; left: 0;
+  padding: $navbar-height calc(2vw + #{$sp-lg}) $sp-lg;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  @media (min-width: 600px) {
+    width: max-content;
+  }
+
+  &.is-open {
+    opacity: 1;
+  }
+
+  &.is-closed {
+    opacity: 0;
+    z-index: -1;
+  }
+}
+
+.navbar-menu-bg {
+    @include pseudo;
+    @include absolute-expand;
+    position: fixed;
+    background-color: rgba($black, 0.925);
+
+    &.is-open {
+      opacity: 1;
+    }
+
+    &.is-closed {
+      opacity: 0;
+      z-index: -1;
+    }
+  }
+
+.navbar-menu-toggle {
+  height: $navbar-height;
+  flex-basis: $navbar-height;
+  position: absolute;
+  top: -0.5px;
+  margin-left: -0.5px;
+  width: max-content;
+}
+
+.navbar-menu-item {
+}
+
+.navbar-menu-link {
+  font-size: calc(0.333vw + #{$sp-md});
+  width: max-content;
+  line-height: 1.625;
+
+  &:not(.button) {
+    padding: 0.5em;
+    left: -0.5em;
+  }
+
+  &.button {
+    text-decoration: none;
+  }
 }
