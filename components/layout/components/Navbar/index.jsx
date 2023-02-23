@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -36,7 +36,35 @@ const menuItems = [
 
 export default function Navbar() {
   const currRoute = useRouter().pathname;
-  const [isOpen, setIsOpen] = useState(false);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [highlightedIndex, setHighlightedIndex] = useState(1);
+
+  const menuContainerRef = useRef(null);
+  const menuOpenButtonRef = useRef(null);
+  const menuCloseButtonRef = useRef(null);
+
+  const openMenu = useCallback(() => {
+    setMenuIsOpen(true);
+    menuCloseButtonRef.current.focus();
+  });
+
+  const closeMenu = useCallback(() => {
+    setMenuIsOpen(false);
+    setHighlightedIndex(-1);
+    menuOpenButtonRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    if (menuIsOpen) {
+      const nodes = menuContainerRef.current.childNodes;
+
+      if (highlightedIndex >= 0 && highlightedIndex < menuItems.length) {
+        nodes[highlightedIndex].focus();
+      }
+    } else {
+      menuOpenButtonRef.current.focus();
+    }
+  }, [menuIsOpen, highlightedIndex]);
 
   return (
     <div className="navbar">
@@ -56,31 +84,46 @@ export default function Navbar() {
 
         <button
           className="navbar-toggle u-subhead u-font-md"
-          onClick={() => setIsOpen(true)}
+          onClick={openMenu}
+          aria-pressed={menuIsOpen}
+          ref={menuOpenButtonRef}
+          aria-haspopup="true"
+          type="button"
         >
           Menu ≡
         </button>
 
-        <div
-          className={`navbar-menu-bg ${isOpen ? "is-open" : "is-closed"}`}
-          onClick={() => setIsOpen(false)}
+        <button
+          className={`navbar-menu-bg ${
+            menuIsOpen ? "is-open" : "is-closed"
+          }`}
+          onClick={() => setMenuIsOpen(false)}
+          tabIndex={menuIsOpen ? 0 : -1}
+          onFocus={closeMenu}
+          aria-label="closing menu"
         />
 
         <ul
           className={`navbar-menu darkglass ${
-            isOpen ? "is-open" : "is-closed"
+            menuIsOpen ? "is-open" : "is-closed"
           }`}
+          ref={menuContainerRef}
         >
           <li className="navbar-menu-toggle">
             <button
               className="navbar-menu-toggle u-subhead u-font-md"
-              onClick={() => setIsOpen(false)}
+              onClick={() => setMenuIsOpen(false)}
+              tabIndex={menuIsOpen ? 0 : -1}
+              ref={menuCloseButtonRef}
+              type="button"
+              aria-pressed="true"
             >
               Menu ❌
             </button>
           </li>
-          {menuItems.map((link) => (
-            <li className="navbar-menu-item">
+
+          {menuItems.map((link, i) => (
+            <li key={link?.label} className="navbar-menu-item">
               <Link href={link?.route} passHref>
                 <a
                   className={`navbar-menu-link${
@@ -89,6 +132,7 @@ export default function Navbar() {
                       : ""
                   }`}
                   aria-current={checkRoute(link?.route, currRoute)}
+                  tabIndex={menuIsOpen ? 0 : -1}
                 >
                   {link?.label}
                 </a>
@@ -96,6 +140,14 @@ export default function Navbar() {
             </li>
           ))}
         </ul>
+
+        <button
+          className="u-visually-hidden"
+          onClick={() => setMenuIsOpen(false)}
+          tabIndex={menuIsOpen ? 0 : -1}
+          onFocus={closeMenu}
+          aria-label="closing menu"
+        />
       </nav>
     </div>
   );
