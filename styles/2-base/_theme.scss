@@ -18,9 +18,14 @@ h1, h2, h3, h4, h5, h6,
 	box-shadow: 0 1px 12px 0 $shadow;
 }
 
-a:focus, button:focus, [tabindex]:focus {
-	outline: 3px dotted rgba($cornflower-light, 0.5);
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible {
+  outline: 3px dotted rgba($cornflower-light, 0.5);
 	outline-offset: 3px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none;
 }
 
 ::selection {

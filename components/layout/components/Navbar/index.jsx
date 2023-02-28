@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 import checkRoute from "/helpers/checkRoute";
+
+import CrossIcon from "/components/icons/CrossIcon";
+import HamburgerIcon from "/components/icons/HamburgerIcon";
 import RetinaImg from "/components/common/RetinaImg";
 
 const menuItems = [
@@ -37,6 +40,7 @@ const menuItems = [
 export default function Navbar() {
   const currRoute = useRouter().pathname;
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [menuHasBeenOpened, setMenuHasBeenOpened] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(1);
 
   const menuContainerRef = useRef(null);
@@ -45,6 +49,7 @@ export default function Navbar() {
 
   const openMenu = useCallback(() => {
     setMenuIsOpen(true);
+    setMenuHasBeenOpened(true);
     menuCloseButtonRef.current.focus();
   });
 
@@ -61,10 +66,10 @@ export default function Navbar() {
       if (highlightedIndex >= 0 && highlightedIndex < menuItems.length) {
         nodes[highlightedIndex].focus();
       }
-    } else {
+    } else if (menuHasBeenOpened) {
       menuOpenButtonRef.current.focus();
     }
-  }, [menuIsOpen, highlightedIndex]);
+  }, [menuIsOpen, menuHasBeenOpened, highlightedIndex]);
 
   return (
     <div className="navbar">
@@ -90,7 +95,7 @@ export default function Navbar() {
           aria-haspopup="true"
           type="button"
         >
-          Menu ≡
+          Menu <HamburgerIcon />
         </button>
 
         <button
@@ -118,7 +123,7 @@ export default function Navbar() {
               type="button"
               aria-pressed="true"
             >
-              Menu ❌
+              Menu <CrossIcon />
             </button>
           </li>
 
