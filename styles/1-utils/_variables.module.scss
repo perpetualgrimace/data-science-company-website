@@ -61,8 +61,8 @@ $salmon-md         : #FFA28B;
 $salmon-dark       : #9E513D;
 $salmon-darker     : #4A251C;
 
-$prism: makePrism(1, to right);
-$prism-transparent: makePrism(0.55);
+$prism: makePrism();
+$prism-transparent: makePrism(0.425);
 $prism-vertical: makePrism(1, to bottom);
 
 //////////////////////////////////

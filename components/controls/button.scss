@@ -1,7 +1,8 @@
 .button {
   @include subhead-text;
+  letter-spacing: 0.05em;
   display: inline-block;
-  padding: 0.125em 1em;
+  padding: 0.125em 1.25em;
   background-color: $dark-2;
   background-image: linear-gradient(to top, rgba($white, 0) 0%, rgba($white, 0.15) 100%);
   border-radius: 3em;
@@ -18,8 +19,9 @@
   &:not([aria-pressed="true"]):hover,
   &:not([aria-pressed="true"]):focus {
     background: $prism-transparent;
-    box-shadow: 0 0 13px 0 rgba($white, 0.33);
-    border-color: $cornflower-dark;
+    box-shadow: 0 0 13px 0 rgba($white, 0.25);
+    border-color: rgba($white, 0.25);
+    text-shadow: 0 0 0.5em $shadow;
   }
 
   &:after {
