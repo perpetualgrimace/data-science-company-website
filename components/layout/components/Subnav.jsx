@@ -5,8 +5,8 @@ import Button from "/components/controls/Button";
 export default function Subnav(props) {
   const { sections } = props;
   return (
-    <nav className="subnav darkglass">
-      <ul className="subnav-list">
+    <nav className="subnav">
+      <ul className="subnav-list darkglass">
         {sections.map((link) => (
           <li key={link.title} className="subnav-item">
             <a className="subnav-link" href={`#${link.slug}`}>
