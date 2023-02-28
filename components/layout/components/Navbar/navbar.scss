@@ -45,6 +45,7 @@
 .navbar-list {
   display: flex;
   right: -$navbar-link-padding;
+  min-height: min-content;
 }
 
 .navbar-toggle {
@@ -56,8 +57,9 @@
 .navbar-menu {
   position: fixed;
   border-radius: 0;
+  border-width: 0 1px 0 0;
   top: 0; right: 0; bottom: 0; left: 0;
-  padding: $navbar-height calc(2vw + #{$sp-lg}) $sp-lg;
+  padding: ($sp-lg + $navbar-height) calc(2vw + #{$sp-lg}) ($sp-xl * 1.5);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -73,6 +75,10 @@
     .navbar-menu-item {
       animation: pull-up 0.45s ease-out;
     }
+
+    .navbar-menu-link:before {
+      animation: pull-right 0.45s ease-out;
+    }
   }
 
   &.is-closed {
@@ -80,50 +86,107 @@
     transform: translateX(-100%);
     z-index: -1;
   }
+
+  &:after {
+    @include pseudo;
+    position: absolute;
+    top: $navbar-height;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: $dark-2;
+  }
 }
 
 .navbar-menu-bg {
-    @include pseudo;
-    @include absolute-expand;
-    position: fixed;
-    background-color: rgba($black, 0.925);
+  @include pseudo;
+  @include absolute-expand;
+  position: fixed;
+  background-color: rgba($black, 0.925);
 
-    &.is-open {
-      opacity: 1;
-      transition: opacity 0.2s ease-out;
-    }
+  &.is-open {
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+  }
 
-    &.is-closed {
-      opacity: 0;
-      z-index: -1;
-      width: 0px;
-      height: 0px;
+  &.is-closed {
+    opacity: 0;
+    z-index: -1;
+    width: 0px;
+    height: 0px;
+  }
+}
+
+.navbar-toggle,
+.navbar-menu-toggle {
+  display: flex;
+  align-items: center;
+  color: $light-2;
+  transition: 0.2s ease-out color;
+
+  &:hover, &:focus {
+    color: $white;
+  }
+
+  > svg {
+    width: $font-size-xl;
+    top: -0.5px;
+    margin-left: $sp-xxs;
+
+    > path {
+      fill: currentColor;
     }
   }
+}
 
 .navbar-menu-toggle {
   height: $navbar-height;
   flex-basis: $navbar-height;
   position: absolute;
-  top: -0.5px;
-  margin-left: -0.5px;
+  top: 0;
+  margin-left: 0;
   width: max-content;
 }
 
 .navbar-menu-item {
+  margin-right: -$sp-md;
+  display: flex;
 }
 
 .navbar-menu-link {
   font-size: calc(0.333vw + #{$sp-md});
   width: max-content;
   line-height: 1.625;
+  flex: 1 0 100%;
+  text-decoration: none;
 
   &:not(.button) {
     padding: 0.5em;
     left: -0.5em;
+    transition: 0.2s ease-out color;
   }
 
   &.button {
     text-decoration: none;
+    flex: 0 0 auto;
+    margin-top: $sp-lg;
+  }
+
+  &:not([aria-current="page"]):not(.button) {
+    color: $light-2;
+
+    &:hover, &:focus {
+      color: $white;
+    }
+  }
+
+  &[aria-current="page"]:before {
+    @include pseudo;
+    @include absolute-vertical-center;
+    background: $prism-vertical;
+    width: $sp-lg;
+    height: $sp-lg;
+    left: calc(-2vw - #{$sp-lg * 1.25});
+    border-radius: 50%;
   }
 }
