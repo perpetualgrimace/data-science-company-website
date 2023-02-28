@@ -51,13 +51,13 @@ export default function Navbar() {
     setMenuIsOpen(true);
     setMenuHasBeenOpened(true);
     menuCloseButtonRef.current.focus();
-  });
+  }, [menuIsOpen, menuHasBeenOpened]);
 
   const closeMenu = useCallback(() => {
     setMenuIsOpen(false);
     setHighlightedIndex(-1);
     menuOpenButtonRef.current.focus();
-  }, []);
+  }, [menuIsOpen, highlightedIndex]);
 
   useEffect(() => {
     if (menuIsOpen) {
