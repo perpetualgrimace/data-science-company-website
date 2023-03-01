@@ -11,6 +11,8 @@ export default function TextField(props) {
     fontSize,
     touched,
     errors,
+    as,
+    rows,
   } = props;
 
   return (
@@ -19,11 +21,15 @@ export default function TextField(props) {
         {labelText}
 
         <Field
-          className={`text-field-input u-font-${fontSize || "lg"}`}
+          className={`text-field-input u-font-${fontSize || "lg"}${
+            touched[[name]] && errors[[name]] ? " is-error" : ""
+          }`}
           id={name}
           name={name}
           placeholder={placeholder || labelText}
-          type={type || "text"}
+          type={type}
+          as={as}
+          rows={rows || 5}
         />
       </label>
 

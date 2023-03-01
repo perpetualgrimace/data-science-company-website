@@ -6,15 +6,19 @@
 .text-field-input {
   padding: $sp-xxs $sp-xs;
   color: $light-1;
-  background-color: $dark-3;
-  border: 1px solid $gray;
+  background-color: $black;
+  border: 1px solid $dark-1;
   border-radius: $radius-sm;
+
+  &.is-error {
+    border-color: $salmon-dark;
+  }
 }
 
 .text-field-alert {
   position: absolute;
   right: 0;
-  bottom: -2em;
+  top: 0;
   color: $salmon-light;
 
   svg {
