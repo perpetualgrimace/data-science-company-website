@@ -3,6 +3,7 @@ import DefaultLayout from "/components/layout/DefaultLayout";
 
 import IntroSection from "/components/layout/components/IntroSection";
 import DiamondSection from "/components/layout/components/DiamondSection";
+import MulticolSection from "/components/layout/components/MulticolSection";
 import TextSection from "/components/layout/components/TextSection";
 
 import ExpandHorizontalIcon from "/components/icons/ExpandHorizontalIcon";
@@ -87,6 +88,68 @@ const sections = [
       </>
     ),
     slug: "about-andalusia",
+    layout: "multicol",
+    columns: [
+      {
+        title: "Our belief",
+        children: (
+          <p className="u-font-md">
+            We believe our customers should always have high bandwidth and
+            highly flexible access to their data-assets for analysis and
+            reporting purposes.
+          </p>
+        ),
+      },
+      {
+        title: "Our goal",
+        children: (
+          <p className="u-font-md">
+            Andalusia is building technologies to allow its customers to
+            have improved access to their data assets by creating parallel
+            stores and computation from inflexible systems that have
+            potential access risk.
+          </p>
+        ),
+      },
+      {
+        title: "Our locations",
+        children: (
+          <>
+            <h4 className="u-font-md u-mb-xxs">Riyadh Office</h4>
+            <p className="u-font-xs u-mb-md">
+              Quattro Center, 7013 At Takhassusi Branch St,
+              Ar Rahmaniyyah, Riyadh 12341, Saudi Arabia
+            </p>
+
+            <h4 className="u-font-md u-mb-xxs">Dubai Office</h4>
+            <p className="u-font-xs">
+              DQuarters, 300 Building 5, Dubai Media City, DUBAI, UAE PO
+              BOX 73030
+            </p>
+          </>
+        ),
+      },
+      {
+        title: "Clients we’ve deployed at",
+        images: [
+          {
+            file: "logos/clients/sa-human-resources",
+            alt: "Saudi Arabia Department of Human Resources and Social Development",
+            href: "https://hrsd.gov.sa/en",
+          },
+          {
+            file: "logos/clients/sa-zakat-tax-customs",
+            alt: "Saudi Arabia Zakat, Tax and Customs Authority",
+            href: "https://zatca.gov.sa/en",
+          },
+          {
+            file: "logos/clients/sa-economy-planning",
+            alt: "Saudi Arabia Ministry of Economy and Planning",
+            href: "https://www.mep.gov.sa/en/",
+          },
+        ],
+      },
+    ],
     text: (
       <>
         <p>
@@ -158,6 +221,17 @@ function generateLayout(section) {
         title={section?.title}
         slug={section?.slug}
         cards={section?.cards}
+      />
+    );
+  }
+  // multicolumn section
+  else if (section?.layout === "multicol") {
+    return (
+      <MulticolSection
+        key={section?.title}
+        title={section?.title}
+        slug={section?.slug}
+        columns={section?.columns}
       />
     );
   }
