@@ -122,7 +122,7 @@ const tabs = [
 
 export default function Interfaces() {
   return (
-    <DefaultLayout slug="interfaces">
+    <DefaultLayout slug="interfaces" homeLink="interfaces">
       <section className="padded-section interfaces-section u-text-l">
         <h1 className="u-text-c u-title">Interfaces</h1>
 

@@ -3,7 +3,7 @@ import RetinaImg from "/components/common/RetinaImg";
 
 export default function SystemDiagram() {
   return (
-    <DefaultLayout slug="system-diagram">
+    <DefaultLayout slug="system-diagram" homeLink>
       <section className="fullscreen-section load-management-section">
         <h1 className="u-text-c u-title">System diagram</h1>
 

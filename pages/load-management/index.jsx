@@ -3,7 +3,7 @@ import RetinaImg from "/components/common/RetinaImg";
 
 export default function LoadManagement() {
   return (
-    <DefaultLayout slug="load-management">
+    <DefaultLayout slug="load-management" homeLink>
       <section className="fullscreen-section load-management-section">
         <h1 className="u-text-c u-title">Load management, simplified</h1>
 
