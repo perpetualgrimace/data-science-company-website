@@ -12,7 +12,10 @@ export default function MulticolSection(props) {
 
       <div className="multicol-section-inner">
         {columns?.map((col) => (
-          <div className="multicol-section-col darkglass">
+          <div
+            key={`${col?.title}-col`}
+            className="multicol-section-col darkglass"
+          >
             <h3
               className={`u-font-lg u-mb-sm${
                 col?.images ? " u-text-c" : ""
@@ -26,7 +29,10 @@ export default function MulticolSection(props) {
             {col?.images && (
               <ul className="multicol-image-list">
                 {col.images.map((img) => (
-                  <li className="multicol-image-item">
+                  <li
+                    key={`${img?.href || img}-img`}
+                    className="multicol-image-item"
+                  >
                     {img?.href ? (
                       <a
                         href={img.href}
