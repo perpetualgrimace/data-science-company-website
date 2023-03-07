@@ -4,8 +4,11 @@ import DiamondCard from "/components/layout/components/DiamondCard";
 export default function DiamondSection(props) {
   const { title, slug, cards } = props;
   return (
-    <section className="diamond-section fullscreen-section">
-      <h2 className="u-text-c u-title" id={slug || "diamond-section"}>
+    <section
+      className="diamond-section fullscreen-section"
+      id={slug || "diamond-section"}
+    >
+      <h2 className="u-text-c u-title">
         {title || "missing `title` prop"}
       </h2>
 

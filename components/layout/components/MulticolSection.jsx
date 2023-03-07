@@ -5,10 +5,11 @@ import RetinaImg from "/components/common/RetinaImg";
 export default function MulticolSection(props) {
   const { title, slug, columns } = props;
   return (
-    <section className="multicol-section fullscreen-section">
-      <h2 className="u-text-c u-title" id={slug || "text-section"}>
-        {title || "missing title"}
-      </h2>
+    <section
+      className="multicol-section fullscreen-section"
+      id={slug || "text-section"}
+    >
+      <h2 className="u-text-c u-title">{title || "missing title"}</h2>
 
       <div className="multicol-section-inner">
         {columns?.map((col) => (

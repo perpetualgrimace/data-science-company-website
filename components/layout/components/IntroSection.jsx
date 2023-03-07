@@ -3,8 +3,11 @@ import IconBullet from "/components/common/IconBullet";
 export default function IntroSection(props) {
   const { title, slug, subtitle, bullets } = props;
   return (
-    <section className="fullscreen-section intro-section">
-      <h1 className="u-text-c u-title" id={slug || "intro-section"}>
+    <section
+      className="fullscreen-section intro-section"
+      id={slug || "intro-section"}
+    >
+      <h1 className="u-text-c u-title">
         {title || "missing `title` prop"}
       </h1>
 
