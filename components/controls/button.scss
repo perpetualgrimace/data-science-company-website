@@ -57,15 +57,3 @@
     cursor: not-allowed;
   }
 }
-
-.button.darkglass {
-  background: rgba($dark-2, 0.6);
-  border: 1px solid $light-2;
-  box-shadow: 0 1px 12px 0 rgba($black, 0.25);
-  padding-top: 0.375em;
-  padding-bottom: 0.375em;
-
-  &:hover, &:focus {
-    background: $prism-transparent;
-  }
-}
