@@ -32,6 +32,7 @@ $logo-column-width: 12rem;
 
   &[aria-selected="true"] {
     border-image: makePrism() 1;
+    border-width: 0 0 2px 0; // safari fix
   }
   &[aria-selected="true"],
   &:hover, &:focus {

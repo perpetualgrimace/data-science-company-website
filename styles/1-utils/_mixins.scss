@@ -52,8 +52,12 @@
 
 @mixin title-text {
   font-family: $title-font;
-	font-size: $font-size-xxxxl;
+	font-size: calc(6vw + #{$font-size-sm});
 	line-height: 1;
+
+	@media (min-width: 700px) {
+		font-size: $font-size-xxxxl;
+	}
 }
 
 @mixin subhead-text {
