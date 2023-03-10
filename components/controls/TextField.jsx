@@ -13,6 +13,7 @@ export default function TextField(props) {
     errors,
     as,
     rows,
+    autoFocus,
   } = props;
 
   return (
@@ -30,6 +31,7 @@ export default function TextField(props) {
           type={type}
           as={as}
           rows={rows || 5}
+          autoFocus={autoFocus}
         />
       </label>
 

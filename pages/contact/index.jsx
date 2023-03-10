@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import * as Yup from "yup";
 import { withFormik, Form } from "formik";
 
@@ -27,6 +29,7 @@ function onSubmit(values) {
 
   console.log(JSON.stringify(values, null, 2));
 
+  // TODO: actually submit form data
   if (values) {
     submissionStatus = "success";
   } else {
@@ -38,6 +41,8 @@ function onSubmit(values) {
 
 const TheForm = (props) => {
   const { touched, errors, isSubmitting } = props;
+
+  useEffect(() => (submissionStatus = null));
 
   return (
     <DefaultLayout slug="contact">
@@ -62,6 +67,7 @@ const TheForm = (props) => {
                 fontSize="md"
                 touched={touched}
                 errors={errors}
+                autoFocus={true}
               />
 
               <TextField
