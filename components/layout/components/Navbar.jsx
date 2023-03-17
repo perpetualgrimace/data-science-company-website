@@ -95,7 +95,8 @@ export default function Navbar() {
           aria-haspopup="true"
           type="button"
         >
-          Menu <HamburgerIcon />
+          <span className="u-visually-hidden-sm">Menu </span>
+          <HamburgerIcon />
         </button>
 
         <button
@@ -123,7 +124,8 @@ export default function Navbar() {
               type="button"
               aria-pressed="true"
             >
-              Menu <CrossIcon />
+              <span className="u-visually-hidden-sm">Menu </span>
+              <CrossIcon />
             </button>
           </li>
 

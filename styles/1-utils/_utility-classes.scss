@@ -5,6 +5,11 @@
 .u-visually-hidden {
 	@include visually-hidden;
 }
+.u-visually-hidden-sm {
+	@media (max-width: 499px) {
+		@include visually-hidden;
+	}
+}
 
 //////////////////////////////////
 // TYPOGRAPHY
