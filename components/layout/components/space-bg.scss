@@ -1,8 +1,10 @@
 .space-bg {
-  @include absolute-expand;
   position: fixed;
-  min-height: calc(100vh - $navbar-height);
+  min-height: calc(100vh - $navbar-height + 2px);
+  width: calc(100% + 2px);
+  top: -1px; right: -1px; bottom: -1px; left: -1px;
   z-index: -2;
+  background: $black;
 }
 
 .space-bg-img {
