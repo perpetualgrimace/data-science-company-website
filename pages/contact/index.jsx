@@ -140,16 +140,8 @@ const Contact = withFormik({
     email: Yup.string().email("Invalid").required("Required"),
     name: Yup.string().required("Required"),
     message: Yup.string().required("Required"),
-    // email: Yup.string(),
-    // name: Yup.string(),
-    // message: Yup.string(),
   }),
-  handleSubmit: (values, actions) => {
-    // setTimeout(() => {
-    onSubmit(values, actions);
-    // setSubmitting(false); // only needed if synchronous
-    // }, 1000);
-  },
+  handleSubmit: (values, actions) => onSubmit(values, actions),
 })(TheForm);
 
 export default Contact;
