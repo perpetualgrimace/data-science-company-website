@@ -22,21 +22,29 @@ const submissionMessage = {
   },
 };
 
+const encode = (data) => {
+  return Object.keys(data)
+    .map(
+      (key) =>
+        encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+    )
+    .join("&");
+};
+
 let submissionStatus = null;
 
-function onSubmit(values) {
-  const { name, email, message } = values;
-
-  console.log(JSON.stringify(values, null, 2));
-
-  // TODO: actually submit form data
-  if (values) {
-    submissionStatus = "success";
-  } else {
-    submissionStatus = "fail";
-  }
-
-  return true;
+function onSubmit(values, actions) {
+  fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: encode({
+      "form-name": "Andalusia-website contact page",
+      ...values,
+    }),
+  })
+    .then(() => (submissionStatus = "success"))
+    .catch(() => (submissionStatus = "fail"))
+    .finally(() => actions.setSubmitting(false));
 }
 
 const TheForm = (props) => {
@@ -59,7 +67,10 @@ const TheForm = (props) => {
           </div>
         ) : (
           <>
-            <Form className="contact-form darkglass u-mh-auto u-mb-md">
+            <Form
+              className="contact-form darkglass u-mh-auto u-mb-md"
+              data-netlify={true}
+            >
               <TextField
                 labelText="Your name"
                 placeholder="Firstname Lastname"
@@ -132,11 +143,11 @@ const Contact = withFormik({
     // name: Yup.string(),
     // message: Yup.string(),
   }),
-  handleSubmit: (values, { setSubmitting }) => {
-    setTimeout(() => {
-      onSubmit(values);
-      setSubmitting(false); // only needed if synchronous
-    }, 1000);
+  handleSubmit: (values, actions) => {
+    // setTimeout(() => {
+    onSubmit(values, actions);
+    // setSubmitting(false); // only needed if synchronous
+    // }, 1000);
   },
 })(TheForm);
 
