@@ -138,6 +138,9 @@ export default function Navbar() {
                   }`}
                   aria-current={checkRoute(link?.route, currRoute)}
                   tabIndex={menuIsOpen ? 0 : -1}
+                  onClick={() =>
+                    link?.route === currRoute && setMenuIsOpen(false)
+                  }
                 >
                   {link?.label}
                 </a>
