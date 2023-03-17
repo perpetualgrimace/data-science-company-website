@@ -94,9 +94,10 @@ footer, header, hgroup, main, menu, nav, section, summary {
 	display: block;
 }
 
-// Remove linked image border
+// Remove linked & loading image border
 img {
 	border: 0;
+	outline: none;
 }
 
 // IE overflow bug
