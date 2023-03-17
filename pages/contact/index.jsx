@@ -38,7 +38,7 @@ function onSubmit(values, actions) {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
-      "form-name": "Andalusia-website contact page",
+      "form-name": "Andalusia-website contact form",
       ...values,
     }),
   })
@@ -69,6 +69,7 @@ const TheForm = (props) => {
           <>
             <Form
               className="contact-form darkglass u-mh-auto u-mb-md"
+              name="Andalusia-website contact form"
               data-netlify={true}
             >
               <TextField
