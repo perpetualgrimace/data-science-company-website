@@ -1,15 +1,13 @@
-import { pathPrefix } from "/environment.js";
-
 function RetinaImg(props) {
   const { alt, className, extension, file, loading } = props;
 
   return (
     <img
       className={className}
-      src={`/${pathPrefix}/${file}.${extension}`}
+      src={`/${file}.${extension}`}
       srcSet={`
-        /${pathPrefix}/${file}.${extension} 1x,
-        /${pathPrefix}/${file}@2x.${extension} 2x`}
+        /${file}.${extension} 1x,
+        /${file}@2x.${extension} 2x`}
       alt={alt}
       loading={loading}
       draggable="false"

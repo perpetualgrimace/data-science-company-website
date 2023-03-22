@@ -2,7 +2,7 @@
   "name": "andalusia-website",
   "private": true,
   "scripts": {
-    "dev": "open 'http://localhost:3000/andalusia-website' && next",
+    "dev": "open 'http://localhost:3000' && next",
     "build": "next build",
     "start": "next start"
   },
