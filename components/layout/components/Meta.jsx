@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { pathPrefix } from "/environment.js";
 
 export default function Meta(props) {
   const { children, description, pageTitle } = props;
@@ -14,17 +13,10 @@ export default function Meta(props) {
         content="width=device-width, initial-scale=1"
       />
 
-      <link rel="icon" href={`/${pathPrefix}/favicon.ico`} sizes="any" />
-      <link
-        rel="icon"
-        href={`/${pathPrefix}/favicon.svg`}
-        type="image/svg+xml"
-      />
-      <link
-        rel="apple-touch-icon"
-        href={`/${pathPrefix}/apple-touch-icon.png`}
-      />
-      <link rel="manifest" href={`/${pathPrefix}/manifest.json`} />
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#161B22" />
 
       {children}
