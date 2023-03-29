@@ -104,7 +104,7 @@ const Tabs = ({ fontSize, tabs }) => {
                   {tab?.logos?.length > 0 && (
                     <aside className="tabs-section-logos">
                       <h3 className="tabs-section-logos-headline u-font-md">
-                        Technologies used:
+                        Examples of technologies supported:
                       </h3>
 
                       <div className="tabs-section-logos-list">

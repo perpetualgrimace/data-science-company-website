@@ -111,11 +111,6 @@ const tabs = [
         alt: "Data Iku",
         url: "https://www.dataiku.com/",
       },
-      {
-        slug: "apache-spark",
-        alt: "Apache Spark",
-        url: "https://spark.apache.org/",
-      },
     ],
   },
 ];

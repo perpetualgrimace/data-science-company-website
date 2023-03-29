@@ -82,6 +82,34 @@ const sections = [
     ],
   },
   {
+    title: "Deployment options",
+    slug: "deployment-options",
+    layout: "diamond",
+    cards: [
+      {
+        title: "Deploy",
+        subtitle: "on your own environment",
+        slug: "/deployment-options#activeTab=0",
+        theme: "cornflower",
+        Icon: <HomeIcon />,
+      },
+      {
+        title: "Buy",
+        subtitle: "a pre-deployed version on Andalusia-procured hardware",
+        slug: "/deployment-options#activeTab=1",
+        theme: "salmon",
+        Icon: <CreditCardIcon />,
+      },
+      {
+        title: "Access",
+        subtitle: "Andalusia using an on-soil cloud provider",
+        slug: "/deployment-options#activeTab=2",
+        theme: "malachite",
+        Icon: <CloudIcon />,
+      },
+    ],
+  },
+  {
     title: (
       <>
         About <span className="u-visually-hidden">Andalusia</span>
@@ -170,34 +198,6 @@ const sections = [
         </Link>
       </>
     ),
-  },
-  {
-    title: "Deployment options",
-    slug: "deployment-options",
-    layout: "diamond",
-    cards: [
-      {
-        title: "Deploy",
-        subtitle: "on your own environment",
-        slug: "/deployment-options#activeTab=0",
-        theme: "cornflower",
-        Icon: <HomeIcon />,
-      },
-      {
-        title: "Buy",
-        subtitle: "a pre-deployed version on Andalusia-procured hardware",
-        slug: "/deployment-options#activeTab=1",
-        theme: "salmon",
-        Icon: <CreditCardIcon />,
-      },
-      {
-        title: "Access",
-        subtitle: "Andalusia using an on-soil cloud provider",
-        slug: "/deployment-options#activeTab=2",
-        theme: "malachite",
-        Icon: <CloudIcon />,
-      },
-    ],
   },
 ];
 

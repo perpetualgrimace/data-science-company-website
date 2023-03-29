@@ -18,22 +18,12 @@ const tabs = [
       <>
         <p>
           Andalusia works in your own environment and comes with a clear
-          deployment guide and support.
-        </p>
-        <p>
-          Work with our partner Algorithmi to handle all deployment
-          requirements as per Andalusia guidelines, end-to-end.
+          deployment guide and support.
         </p>
       </>
     ),
     Icon: <HomeIcon />,
     theme: "cornflower",
-    logos: [
-      {
-        slug: "algorithmi",
-        alt: "Algorithmi",
-      },
-    ],
   },
   {
     slug: "buy",
@@ -45,7 +35,7 @@ const tabs = [
         <p>
           If you are in a new environment without IT or need a quick
           parallel set-up installed, Andalusia can pre-deploy on hardware
-          and deliver that to your premise.
+          and deliver that to your premise.
         </p>
         <Tag theme="salmon">Coming soon</Tag>
       </>

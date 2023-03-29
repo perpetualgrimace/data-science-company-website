@@ -11,24 +11,20 @@ import RetinaImg from "/components/common/RetinaImg";
 
 const menuItems = [
   {
-    label: "Home",
-    route: "/",
-  },
-  {
-    label: "Deployment options",
-    route: "/deployment-options",
-  },
-  {
     label: "Interfaces",
     route: "/interfaces",
+  },
+  {
+    label: "System diagram",
+    route: "/system-diagram",
   },
   {
     label: "Load management",
     route: "/load-management",
   },
   {
-    label: "System diagram",
-    route: "/system-diagram",
+    label: "Deployment options",
+    route: "/deployment-options",
   },
   {
     label: "Contact us",
@@ -127,6 +123,21 @@ export default function Navbar() {
               <span className="u-visually-hidden-sm">Menu </span>
               <CrossIcon />
             </button>
+          </li>
+
+          <li className="navbar-menu-item">
+            <Link href="/">
+              <a
+                className="navbar-menu-link"
+                aria-current={checkRoute("/", currRoute)}
+              >
+                <RetinaImg
+                  className="navbar-logo-img"
+                  file="logo"
+                  alt="Andalusia, home"
+                />
+              </a>
+            </Link>
           </li>
 
           {menuItems.map((link, i) => (

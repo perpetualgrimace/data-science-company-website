@@ -117,10 +117,6 @@ const TheForm = (props) => {
                 )}
               </Button>
             </Form>
-
-            <address className="contact-address u-font-sm u-text-c">
-              Dubai Media City, Office 300, Building 5, Dubai, UAE
-            </address>
           </>
         )}
       </section>
