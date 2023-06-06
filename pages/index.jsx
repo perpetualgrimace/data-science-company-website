@@ -1,10 +1,13 @@
 import Link from "next/link";
 import DefaultLayout from "/components/layout/DefaultLayout";
 
-import IntroSection from "/components/layout/components/IntroSection";
+import HeroSection from "/components/layout/components/HeroSection";
 import DiamondSection from "/components/layout/components/DiamondSection";
+import FeatureBulletsSection from "/components/layout/components/FeatureBulletsSection";
 import MulticolSection from "/components/layout/components/MulticolSection";
 import TextSection from "/components/layout/components/TextSection";
+
+import CTA from "/components/layout/components/CTA";
 
 import ExpandHorizontalIcon from "/components/icons/ExpandHorizontalIcon";
 import JupyterIcon from "/components/icons/JupyterIcon";
@@ -17,12 +20,24 @@ import HomeIcon from "/components/icons/HomeIcon";
 import CreditCardIcon from "/components/icons/CreditCardIcon";
 import CloudIcon from "/components/icons/CloudIcon";
 
+const heroSection = {
+  title: (
+    <>
+      A modern
+      <span className="u-cornflower-color"> data science </span>
+      and <span className="u-malachite-color"> AI platform </span>
+      for
+      <span className="u-salmon-color"> restrictive environments </span>
+    </>
+  ),
+  ctaTitle: "Try Andalusia free today",
+};
+
 const sections = [
   {
-    title: "Modern data science for restrictive environments",
+    title: "Why Andalusia platform?",
     shortTitle: "Why Andalusia?",
     slug: "intro",
-    subtitle: "Why Andalusia platform?",
     layout: "intro",
     bullets: [
       {
@@ -204,7 +219,7 @@ const sections = [
 function generateLayout(section) {
   if (section?.layout === "intro") {
     return (
-      <IntroSection
+      <FeatureBulletsSection
         key={section?.title}
         title={section?.title}
         slug={section?.slug}
@@ -252,6 +267,12 @@ function generateLayout(section) {
 export default function Home() {
   return (
     <DefaultLayout slug="home" sections={sections}>
+      {heroSection && (
+        <HeroSection title={heroSection?.title}>
+          <CTA title={heroSection?.ctaTitle} />
+        </HeroSection>
+      )}
+
       {sections?.map((section) => generateLayout(section))}
     </DefaultLayout>
   );

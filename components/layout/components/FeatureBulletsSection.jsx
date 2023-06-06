@@ -1,21 +1,15 @@
 import IconBullet from "/components/common/IconBullet";
 
-export default function IntroSection(props) {
+export default function FeatureBulletsSection(props) {
   const { title, slug, subtitle, bullets } = props;
   return (
     <section
-      className="fullscreen-section intro-section"
-      id={slug || "intro-section"}
+      className="fullscreen-section feature-bullets-section"
+      id={slug || "feature-bullets-section"}
     >
-      <h1 className="u-text-c u-title">
-        {title || "missing `title` prop"}
-      </h1>
+      <h2 className="u-text-c u-title">{title || "missing title"}</h2>
 
       <div className="darkglass">
-        <h2 className="u-text-l-c u-mb-lg">
-          {subtitle || "missing `subtitle` prop"}
-        </h2>
-
         {bullets.map((bullet) => (
           <IconBullet
             key={bullet?.title}

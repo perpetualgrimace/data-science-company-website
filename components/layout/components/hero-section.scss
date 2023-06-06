@@ -1,0 +1,31 @@
+.hero-section {
+
+  &:before {
+    @include pseudo;
+    @include absolute-horizontal-center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    background-image: url('/hero-bg.jpg');
+    background-size: cover;
+    background-position: 50% 90%;
+    mask-image: linear-gradient(
+      to bottom,
+      $dark-3 75%,
+      rgba($dark-2, 0)
+    );
+
+    @media (min-resolution: 1.5dppx) and (min-width: 900px) {
+      background-image: url('/hero-bg@2x.jpg');
+    }
+
+    @supports (mask-image: none) {
+      background-position: 50% 50%;
+    }
+  }
+
+  .hero-title {
+    width: 40rem;
+    max-width: 100%;
+  }
+}
