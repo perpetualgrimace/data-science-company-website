@@ -9,11 +9,15 @@ export default function TextField(props) {
     name,
     type,
     fontSize,
+    helpText,
     touched,
     errors,
     as,
     rows,
     autoFocus,
+    min,
+    max,
+    step,
   } = props;
 
   return (
@@ -32,8 +36,15 @@ export default function TextField(props) {
           as={as}
           rows={rows || 5}
           autoFocus={autoFocus}
+          min={min}
+          max={max}
+          step={step}
         />
       </label>
+
+      {helpText && (
+        <span className="text-field-help u-font-md">{helpText}</span>
+      )}
 
       {touched[[name]] && errors[[name]] && (
         <span className="text-field-alert">

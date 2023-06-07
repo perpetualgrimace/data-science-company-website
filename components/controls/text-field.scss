@@ -15,10 +15,18 @@
   }
 }
 
+.text-field-help,
 .text-field-alert {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
+}
+
+.text-field-help:not(:last-child) {
+  opacity: 0;
+}
+
+.text-field-alert {
   color: $salmon-light;
 
   svg {
