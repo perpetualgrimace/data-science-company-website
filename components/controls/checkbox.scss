@@ -1,0 +1,20 @@
+.checkbox-field-input {
+  @include absolute-vertical-center;
+  width: auto;
+  left: 0;
+}
+.checkbox-field-label {
+  padding-left: $sp-md + $sp-xxs;
+  user-select: none;
+  color: $light-2;
+
+  button {
+    text-decoration: underline;
+    color: inherit;
+    text-decoration-color: $cornflower-md;
+
+    &:hover, &:focus {
+      color: $white;
+    }
+  }
+}
