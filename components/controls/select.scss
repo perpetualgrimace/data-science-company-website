@@ -1,0 +1,47 @@
+.select-label.inline {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.select-label-inner {
+  color: $white;
+  font-weight: $bold-weight;
+}
+
+.select-inner svg {
+  @include absolute-vertical-center;
+  width: 0.875em;
+  right: 0.5em;
+  pointer-events: none;
+}
+
+.select {
+	display: block;
+  width: 100%;
+  padding: $sp-xxs $sp-xs;
+  color: $light-1;
+  background-color: $dark-2;
+  background-image: linear-gradient(180deg, rgba($white, 0.15) 0%, rgba($white, 0) 100%);
+  border: 1px solid $dark-1;
+  border-radius: $radius-sm;
+  // bring my own chevron
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	appearance: none;
+
+  & + svg path {
+    fill: $light-1;
+  }
+
+  &:hover, &:focus {
+    color: $white;
+
+    & + svg path {
+      fill: $white;
+    }
+  }
+}
+/* Hide arrow icon in IE browsers */
+.select::-ms-expand {
+	display: none;
+}
