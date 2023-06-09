@@ -4,12 +4,9 @@ import * as Yup from "yup";
 import { withFormik, Form } from "formik";
 
 import Button from "/components/controls/Button";
-import Checkbox from "/components/controls/Checkbox";
-import Select from "/components/controls/Select";
 import TextField from "/components/controls/TextField";
 
-import EllipsisIcon from "/components/icons/EllipsisIcon";
-import SendIcon from "/components/icons/SendIcon";
+import TrialSummary from "./TrialSummary";
 
 const submissionMessage = {
   success: {
@@ -25,12 +22,13 @@ const submissionMessage = {
 let submissionStatus = null;
 
 function onSubmit(values, actions) {
+  console.log(values);
   console.log(data);
   actions.setSubmitting(false);
 }
 
 const ConfigForm = (props) => {
-  const { touched, errors, isSubmitting } = props;
+  const { values, touched, errors, isSubmitting } = props;
 
   useEffect(() => (submissionStatus = null));
 
@@ -64,7 +62,7 @@ const ConfigForm = (props) => {
           autoFocus={true}
         />
         <TextField
-          name="cpu-per-node"
+          name="cpuPerNode"
           labelText="CPUs / node"
           placeholder="1+ / node"
           helpText="Max 16 / node"
@@ -75,10 +73,9 @@ const ConfigForm = (props) => {
           fontSize="md"
           touched={touched}
           errors={errors}
-          autoFocus={true}
         />
         <TextField
-          name="gpu-per-node"
+          name="gpuPerNode"
           labelText="GPUs / node"
           placeholder="1+ / node"
           helpText="Max 16 / node"
@@ -89,10 +86,9 @@ const ConfigForm = (props) => {
           fontSize="md"
           touched={touched}
           errors={errors}
-          autoFocus={true}
         />
         <TextField
-          name="ram-per-node"
+          name="ramPerNode"
           labelText="RAM / node"
           placeholder="2+ GB / node"
           helpText="Max 64 GB / node"
@@ -103,21 +99,19 @@ const ConfigForm = (props) => {
           fontSize="md"
           touched={touched}
           errors={errors}
-          autoFocus={true}
         />
         <TextField
-          name="storage-per-node"
+          name="storagePerNode"
           labelText="Storage / node"
           placeholder="1+ TB / node"
           helpText="Max 100 TB / node"
           type="number"
-          min="1"
+          min="0.25"
           max="100"
-          step="1"
+          step="0.25"
           fontSize="md"
           touched={touched}
           errors={errors}
-          autoFocus={true}
         />
 
         <Button
@@ -130,6 +124,8 @@ const ConfigForm = (props) => {
           Start free 3 month trial
         </Button>
       </Form>
+
+      <TrialSummary values={values} />
     </>
   );
 };
@@ -137,15 +133,19 @@ const ConfigForm = (props) => {
 const TrialConfig = withFormik({
   mapPropsToValues: (props) => {
     return {
-      name: props.name || "",
-      email: props.email || "",
-      message: props.message || "",
+      nodes: props.nodes,
+      cpuPerNode: props.cpuPerNode,
+      gpuPerNode: props.gpuPerNode,
+      ramPerNode: props.ramPerNode,
+      storagePerNode: props.storagePerNode,
     };
   },
   validationSchema: Yup.object().shape({
-    email: Yup.string().email("Invalid").required("Required"),
-    name: Yup.string().required("Required"),
-    message: Yup.string().required("Required"),
+    nodes: Yup.number().integer().required("Required"),
+    cpuPerNode: Yup.number().integer().required("Required"),
+    gpuPerNode: Yup.number().integer().required("Required"),
+    ramPerNode: Yup.number().integer().required("Required"),
+    storagePerNode: Yup.number().required("Required"),
   }),
   handleSubmit: (values, actions) => onSubmit(values, actions),
 })(ConfigForm);
