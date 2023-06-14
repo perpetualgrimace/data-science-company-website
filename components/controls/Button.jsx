@@ -34,7 +34,11 @@ export default function Button(props) {
       <a {...filteredProps}>{children}</a>
     </Link>
   ) : (
-    <button {...filteredProps} type={type || "button"}>
+    <button
+      {...filteredProps}
+      type={type || "button"}
+      tabIndex={props.disabled ? -1 : null}
+    >
       {children}
     </button>
   );

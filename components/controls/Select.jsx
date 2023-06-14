@@ -16,16 +16,16 @@ export default function Select(props) {
         }`}
         htmlFor={name}
       >
-        <div className="select-label-inner u-mr-xs">
+        <span className="select-label-inner u-mr-xs">
           {labelText || (
             <>
               (missing <code>labelText</code> prop in <code>Select</code>{" "}
               component)
             </>
           )}
-        </div>
+        </span>
 
-        <div className="select-inner">
+        <span className="select-inner">
           <Field
             className="select"
             id={name}
@@ -41,7 +41,7 @@ export default function Select(props) {
           </Field>
 
           <ChevronDownIcon />
-        </div>
+        </span>
       </label>
 
       {touched[[name]] && errors[[name]] && (

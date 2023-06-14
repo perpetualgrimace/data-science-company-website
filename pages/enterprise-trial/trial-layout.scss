@@ -1,9 +1,77 @@
+.trial-config {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .trial-card {
   padding: $sp-lg $sp-md $sp-md $sp-md;
   width: 28rem;
-  max-width: 100%;
+
+  @media (min-width: 1020px) {
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+  }
+
+  @media (min-width: 1400px) {
+    width: 26.5rem;
+    max-width: 100%;
+  }
 }
+
+.trial-summary.followup-mode {
+  @media (min-width: 1020px) {
+    transform: translateX(-100%);
+    left: calc(50% - $sp-md);
+  }
+}
+
+.trial-summary-button {
+  position: absolute;
+  top: $sp-xl + $sp-xxs;
+  transition:
+    color 0.15s ease-out,
+    transform 0.15s ease-out;
+
+  &:hover, &:focus {
+    color: $cornflower-light;
+    transform: scale(1.125);
+  }
+}
+
+.trial-config-form.is-hidden {
+  display: block;
+  position: absolute;
+  left: -$sp-xs;
+  transform: translate(-100%) scale(0.75);
+  transform-origin: right;
+  opacity: 0.3;
+  z-index: -1;
+
+  @media (max-width: 1060px) {
+    opacity: 0;
+  }
+
+  &, & * {
+    pointer-events: none;
+  }
+}
+
 
 .trial-followup-form-button {
   min-height: 3em;
+  margin-top: auto;
+}
+
+.trial-followup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.trial-followup-form.is-hidden {
+  display: block;
+  position: absolute;
+  opacity: 0;
+  right: 0;
+  transform: translate(100%) scale(0.75);
 }

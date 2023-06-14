@@ -8,11 +8,15 @@
   font-weight: $bold-weight;
 }
 
-.select-inner svg {
-  @include absolute-vertical-center;
-  width: 0.875em;
-  right: 0.5em;
-  pointer-events: none;
+.select-inner {
+  display: block;
+
+  svg {
+    @include absolute-vertical-center;
+    width: 0.875em;
+    right: 0.5em;
+    pointer-events: none;
+  }
 }
 
 .select {

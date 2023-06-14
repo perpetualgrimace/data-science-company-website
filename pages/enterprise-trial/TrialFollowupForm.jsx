@@ -48,86 +48,80 @@ function onSubmit(values, actions) {
 }
 
 const SubmitForm = (props) => {
-  const { touched, errors, isSubmitting } = props;
+  const { touched, errors, isSubmitting, isVisible } = props;
 
   useEffect(() => (submissionStatus = null));
 
-  return submissionStatus ? (
-    <div className="trial-followup-form trial-card u-mh-auto u-mb-md">
-      <p className="u-font-xl u-text-c">
-        {submissionMessage[submissionStatus]?.body}
-      </p>
-    </div>
-  ) : (
-    <>
-      <Form
-        className="trial-followup-form trial-card darkglass u-mh-auto u-mb-md"
-        name="Andalusia-website contact form"
-        data-netlify={true}
+  return (
+    <Form
+      className={`trial-followup-form trial-card darkglass u-mh-auto u-mb-md is-${
+        isVisible ? "visible" : "hidden"
+      }`}
+      name="Andalusia-website contact form"
+      data-netlify={true}
+    >
+      <h2 className="u-text-c">Start free 3 month trial</h2>
+
+      <TextField
+        labelText="Company name"
+        placeholder="Your Company"
+        name="company"
+        fontSize="md"
+        touched={touched}
+        errors={errors}
+        autoFocus={true}
+      />
+      <TextField
+        labelText="Contact email address"
+        placeholder="your@emailaddress.com"
+        name="email"
+        fontSize="md"
+        touched={touched}
+        errors={errors}
+      />
+
+      <Select
+        labelText="Company location"
+        touched={touched}
+        errors={errors}
+        options={[
+          { label: "United States", value: "us" },
+          { label: "Saudi Arabia", value: "sa" },
+        ]}
+      />
+
+      <Checkbox
+        name="accept-terms"
+        touched={touched}
+        errors={errors}
+        labelText={
+          <>
+            I agree to the{" "}
+            <button type="button" className="link">
+              Terms of Service
+            </button>
+          </>
+        }
+      />
+
+      <Button
+        className="trial-followup-form-button"
+        fontSize="md"
+        fill
+        type="submit"
+        disabled={isSubmitting}
       >
-        <h2 className="u-text-c">Start free 3 month trial</h2>
-
-        <TextField
-          labelText="Company name"
-          placeholder="Your Company"
-          name="company"
-          fontSize="md"
-          touched={touched}
-          errors={errors}
-          autoFocus={true}
-        />
-        <TextField
-          labelText="Contact email address"
-          placeholder="your@emailaddress.com"
-          name="email"
-          fontSize="md"
-          touched={touched}
-          errors={errors}
-        />
-
-        <Select
-          labelText="Company location"
-          touched={touched}
-          errors={errors}
-          options={[
-            { label: "United States", value: "us" },
-            { label: "Saudi Arabia", value: "sa" },
-          ]}
-        />
-
-        <Checkbox
-          name="accept-terms"
-          touched={touched}
-          errors={errors}
-          labelText={
-            <>
-              I agree to the{" "}
-              <button type="button" className="link">
-                Terms of Service
-              </button>
-            </>
-          }
-        />
-
-        <Button
-          className="trial-followup-form-button"
-          fontSize="md"
-          fill
-          type="submit"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            <>
-              <EllipsisIcon /> Submitting trial request
-            </>
-          ) : (
-            <>
-              <SendIcon /> Submit trial request
-            </>
-          )}
-        </Button>
-      </Form>
-    </>
+        {isSubmitting ? (
+          <>
+            <EllipsisIcon /> Submitting trial request
+          </>
+        ) : (
+          <>
+            <SendIcon /> Submit trial request
+          </>
+        )}
+      </Button>
+    </Form>
   );
 };
 
