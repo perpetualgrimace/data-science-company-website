@@ -20,14 +20,14 @@ export default function CTA(props) {
 
         <span className="cta-or"> or </span>
 
-        <Button
-          className="cta-link"
+        <a
+          className="cta-link button"
           fontSize="md"
           href="https://averroes.andal.us"
         >
           <span className="u-visually-hidden-sm">test </span>hosted
           version
-        </Button>
+        </a>
       </p>
     </div>
   );

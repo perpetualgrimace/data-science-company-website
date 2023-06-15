@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useRef, useState } from "react";
 
 import * as Yup from "yup";
 import { withFormik, Form } from "formik";
@@ -9,7 +9,7 @@ import TextField from "/components/controls/TextField";
 import TrialSummary from "./TrialSummary";
 import TrialFollowupForm from "./TrialFollowupForm";
 
-let submissionStatus = null;
+let submissionStatus = "unconfigured";
 
 function onSubmit(values, actions) {
   submissionStatus = "configured";
@@ -22,25 +22,32 @@ const ConfigForm = (props) => {
   const [reconfiguring, setReconfiguring] = useState(false);
 
   function checkFollowup(submissionStatus) {
-    if (submissionStatus === "unconfigured" || !submissionStatus) {
+    if (
+      Object.keys(errors).length !== 0 ||
+      submissionStatus === "unconfigured" ||
+      reconfiguring
+    ) {
       return false;
-    } else if (submissionStatus === "configured") {
-      return true;
-    } else if (submissionStatus === "reconfiguring" && reconfiguring) {
-      return false;
+    } else return true;
+  }
+
+  const configButtonRef = useRef(null);
+  const backButtonRef = useRef(null);
+
+  // config submit button
+  function handleConfirmConfigure() {
+    if (Object.keys(errors).length === 0) {
+      setReconfiguring(false);
+      submissionStatus = "configured";
+      setTimeout(() => backButtonRef.current.focus(), 1); // wait till not disabled
     }
   }
 
+  // back button
   function handleReconfigure() {
     setReconfiguring(true);
     submissionStatus = "reconfiguring";
-  }
-
-  function handleConfirmConfigure() {
-    if (reconfiguring) {
-      setReconfiguring(false);
-      submissionStatus = "configured";
-    }
+    setTimeout(() => configButtonRef.current.focus(), 1);
   }
 
   return (
@@ -64,7 +71,6 @@ const ConfigForm = (props) => {
           fontSize="md"
           touched={touched}
           errors={errors}
-          autoFocus={true}
           disabled={checkFollowup(submissionStatus)}
         />
         <TextField
@@ -128,8 +134,9 @@ const ConfigForm = (props) => {
           fontSize="md"
           fill
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || checkFollowup(submissionStatus)}
           onClick={() => handleConfirmConfigure()}
+          refs={configButtonRef}
         >
           Start free 3 month trial
         </Button>
@@ -138,12 +145,13 @@ const ConfigForm = (props) => {
       <TrialSummary
         values={values}
         backButtonIsVisible={checkFollowup(submissionStatus)}
+        backButtonRef={backButtonRef}
         onReconfigure={() => handleReconfigure()}
       />
 
       <TrialFollowupForm
         values={values}
-        isVisible={submissionStatus === "configured"}
+        isVisible={checkFollowup(submissionStatus)}
       />
     </div>
   );
@@ -152,11 +160,11 @@ const ConfigForm = (props) => {
 const TrialConfig = withFormik({
   mapPropsToValues: (props) => {
     return {
-      nodes: props.nodes,
-      cpuPerNode: props.cpuPerNode,
-      gpuPerNode: props.gpuPerNode,
-      ramPerNode: props.ramPerNode,
-      storagePerNode: props.storagePerNode,
+      nodes: props.nodes || "",
+      cpuPerNode: props.cpuPerNode || "",
+      gpuPerNode: props.gpuPerNode || "",
+      ramPerNode: props.ramPerNode || "",
+      storagePerNode: props.storagePerNode || "",
     };
   },
   validationSchema: Yup.object().shape({

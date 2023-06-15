@@ -21,11 +21,12 @@ function generateClassList(props) {
 }
 
 export default function Button(props) {
-  const { href, type, children } = props;
+  const { href, refs, type, children } = props;
 
   const filteredProps = {
     ...props,
     fill: undefined,
+    ref: refs,
     className: generateClassList(props),
   };
 

@@ -33,7 +33,8 @@ function calculateTotalCost(values) {
 }
 
 export default function TrialSumary(props) {
-  const { values, backButtonIsVisible, onReconfigure } = props;
+  const { values, backButtonIsVisible, backButtonRef, onReconfigure } =
+    props;
 
   return (
     <section
@@ -45,15 +46,18 @@ export default function TrialSumary(props) {
     >
       <h2 className="u-text-c">Cluster summary</h2>
 
-      {backButtonIsVisible && (
-        <button
-          className="trial-summary-button u-subhead u-font-sm"
-          type="button"
-          onClick={onReconfigure}
-        >
-          &lt; edit
-        </button>
-      )}
+      <button
+        className={`trial-summary-button u-subhead u-font-sm is-${
+          backButtonIsVisible ? "visible" : "hidden"
+        }`}
+        type="button"
+        onClick={onReconfigure}
+        ref={backButtonRef}
+        tabIndex={!backButtonIsVisible ? "-1" : null}
+        disabled={!backButtonIsVisible}
+      >
+        &lt; edit
+      </button>
 
       <TrialLine
         value={values.nodes || 0}

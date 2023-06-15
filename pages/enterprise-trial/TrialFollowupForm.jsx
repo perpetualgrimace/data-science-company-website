@@ -82,6 +82,7 @@ const SubmitForm = (props) => {
 
       <Select
         labelText="Company location"
+        name="location"
         touched={touched}
         errors={errors}
         options={[
@@ -128,15 +129,15 @@ const SubmitForm = (props) => {
 const TrialFollowupForm = withFormik({
   mapPropsToValues: (props) => {
     return {
-      name: props.name || "",
+      company: props.company || "",
       email: props.email || "",
-      message: props.message || "",
+      location: props.location || "us",
     };
   },
   validationSchema: Yup.object().shape({
     email: Yup.string().email("Invalid").required("Required"),
     name: Yup.string().required("Required"),
-    message: Yup.string().required("Required"),
+    location: Yup.string().required("Required"),
   }),
   handleSubmit: (values, actions) => onSubmit(values, actions),
 })(SubmitForm);

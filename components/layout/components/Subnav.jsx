@@ -9,14 +9,14 @@ export default function Subnav(props) {
   return (
     <nav className="subnav">
       <ul className="subnav-list darkglass">
-        {sections.map((link, i) => (
+        {sections.map((link) => (
           <li key={link.title} className="subnav-item">
             <Link
               className="subnav-link"
               activeClass="is-active"
               smooth
               spy
-              offset={i === 0 ? -60 : -10}
+              offset={-10}
               to={link.slug}
               href={`#${link.slug}`}
             >

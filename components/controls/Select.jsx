@@ -1,7 +1,6 @@
 import { Field } from "formik";
 
-import slugify from "/helpers/slugify";
-
+import WarningIcon from "/components/icons/WarningIcon";
 import ChevronDownIcon from "/components/icons/ChevronDownIcon";
 
 export default function Select(props) {
