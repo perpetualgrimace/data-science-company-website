@@ -1,5 +1,7 @@
-import TrialLine from "./TrialLine";
 import ChevronLeftIcon from "/components/icons/ChevronLeftIcon";
+
+import TrialLine from "./TrialLine";
+import TrialTerms from "./TrialTerms";
 
 function calculateNodeCost(nodes) {
   const dollarsPerUnit = 5000;
@@ -34,59 +36,70 @@ function calculateTotalCost(values) {
 }
 
 export default function TrialSumary(props) {
-  const { values, backButtonIsVisible, backButtonRef, onReconfigure } =
-    props;
+  const {
+    values,
+    backButtonIsVisible,
+    backButtonRef,
+    onReconfigure,
+    termsVisible,
+    onTermsToggle,
+  } = props;
 
   return (
-    <section
-      className={`trial-summary trial-card darkglass u-mh-auto u-mb-md ${
-        backButtonIsVisible ? "followup" : "configure"
-      }-mode`}
-      name="Andalusia-website contact form"
-      data-netlify={true}
-    >
-      <h2 className="u-text-c">Cluster summary</h2>
-
-      <button
-        className={`trial-summary-button u-subhead u-font-sm is-${
-          backButtonIsVisible ? "visible" : "hidden"
-        }`}
-        type="button"
-        onClick={onReconfigure}
-        ref={backButtonRef}
-        tabIndex={!backButtonIsVisible ? "-1" : null}
-        disabled={!backButtonIsVisible}
+    <>
+      <section
+        className={`trial-summary trial-card darkglass u-mh-auto u-mb-md ${
+          backButtonIsVisible ? "followup" : "configure"
+        }-mode is-${termsVisible ? "hidden" : "visible"}`}
       >
-        <ChevronLeftIcon /> edit
-      </button>
+        <h2 className="u-text-c">Cluster summary</h2>
 
-      <TrialLine
-        value={values.nodes || 0}
-        measure=" nodes "
-        cost={calculateNodeCost(values.nodes)}
-      />
-      <TrialLine
-        value={values.cpuPerNode * values.nodes || 0}
-        measure=" CPUs total "
-        cost={calculateCPUCost(values.cpuPerNode, values.nodes)}
-      />
-      <TrialLine
-        value={values.gpuPerNode * values.nodes || 0}
-        measure=" GPUs total "
-        cost={calculateGPUCost(values.gpuPerNode, values.nodes)}
-      />
-      <TrialLine
-        value={`${values.ramPerNode * values.nodes || 0} GB`}
-        measure=" RAM total "
-        cost={calculateRAMCost(values.ramPerNode, values.nodes)}
-      />
-      <TrialLine
-        value={`${values.storagePerNode * values.nodes || 0} TB`}
-        measure=" storage total "
-        cost={calculateStorageCost(values.storagePerNode, values.nodes)}
-      />
+        <button
+          className={`trial-summary-button u-subhead u-font-sm is-${
+            backButtonIsVisible ? "visible" : "hidden"
+          }`}
+          type="button"
+          onClick={onReconfigure}
+          ref={backButtonRef}
+          tabIndex={!backButtonIsVisible ? "-1" : null}
+          disabled={!backButtonIsVisible}
+        >
+          <ChevronLeftIcon /> edit
+        </button>
 
-      <TrialLine value="Total cost " cost={calculateTotalCost(values)} />
-    </section>
+        <TrialLine
+          value={values.nodes || 0}
+          measure=" nodes "
+          cost={calculateNodeCost(values.nodes)}
+        />
+        <TrialLine
+          value={values.cpuPerNode * values.nodes || 0}
+          measure=" CPUs total "
+          cost={calculateCPUCost(values.cpuPerNode, values.nodes)}
+        />
+        <TrialLine
+          value={values.gpuPerNode * values.nodes || 0}
+          measure=" GPUs total "
+          cost={calculateGPUCost(values.gpuPerNode, values.nodes)}
+        />
+        <TrialLine
+          value={`${values.ramPerNode * values.nodes || 0} GB`}
+          measure=" RAM total "
+          cost={calculateRAMCost(values.ramPerNode, values.nodes)}
+        />
+        <TrialLine
+          value={`${values.storagePerNode * values.nodes || 0} TB`}
+          measure=" storage total "
+          cost={calculateStorageCost(values.storagePerNode, values.nodes)}
+        />
+
+        <TrialLine
+          value="Total cost "
+          cost={calculateTotalCost(values)}
+        />
+      </section>
+
+      <TrialTerms isVisible={termsVisible} onToggle={onTermsToggle} />
+    </>
   );
 }

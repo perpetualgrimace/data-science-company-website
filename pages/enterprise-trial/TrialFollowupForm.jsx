@@ -48,7 +48,8 @@ function onSubmit(values, actions) {
 }
 
 const SubmitForm = (props) => {
-  const { touched, errors, isSubmitting, isVisible } = props;
+  const { touched, errors, isSubmitting, isVisible, onTermsToggle } =
+    props;
 
   useEffect(() => (submissionStatus = null));
 
@@ -98,7 +99,11 @@ const SubmitForm = (props) => {
         labelText={
           <>
             I agree to the{" "}
-            <button type="button" className="link">
+            <button
+              type="button"
+              className="link"
+              onClick={onTermsToggle}
+            >
               Terms of Service
             </button>
           </>

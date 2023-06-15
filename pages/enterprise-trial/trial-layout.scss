@@ -1,3 +1,5 @@
+$card-height: 31.75rem;
+
 .trial-config {
   display: flex;
   flex-wrap: wrap;
@@ -6,6 +8,7 @@
 .trial-card {
   padding: $sp-lg $sp-md $sp-md $sp-md;
   width: 28rem;
+  min-height: $card-height;
 
   @media (min-width: 1020px) {
     transition:
@@ -50,6 +53,29 @@
   }
 }
 
+.trial-terms-button {
+  position: absolute;
+  top: $sp-xs;
+  right: $sp-xxs;
+  margin-top: 1px; // forever fudging
+  transition:
+    color 0.15s ease-out,
+    transform 0.15s ease-out;
+
+  svg {
+    width: $sp-xl;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  &:hover, &:focus {
+    color: $cornflower-md;
+    transform: scale(1.125);
+  }
+}
+
 .trial-config-form.is-hidden {
   display: block;
   position: absolute;
@@ -58,31 +84,53 @@
   transform-origin: right;
   opacity: 0.3;
   z-index: -1;
+  pointer-events: none;
 
   @media (max-width: 1060px) {
     opacity: 0;
   }
-
-  &, & * {
-    pointer-events: none;
-  }
 }
 
+.trial-terms,
+.trial-followup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.trial-terms {
+  max-height: $card-height;
+}
+
+.trial-terms-text {
+  flex: 1 1 auto;
+  max-height: calc($card-height - $sp-xxl);
+  overflow-y: auto;
+}
 
 .trial-followup-form-button {
   min-height: 3em;
   margin-top: auto;
 }
 
-.trial-followup-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.trial-followup-form.is-hidden {
+.trial-followup-form.is-hidden,
+.trial-terms.is-hidden,
+.trial-summary.followup-mode.is-hidden {
   display: block;
   position: absolute;
   opacity: 0;
-  right: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.trial-followup-form.is-hidden {
   transform: translate(100%) scale(0.75);
+  right: 0;
+}
+
+.trial-terms.is-hidden {
+  transform: scaleX(0.5);
+}
+
+.trial-summary.followup-mode.is-hidden {
+  transform: scaleX(0.5) translateX(-200%) !important;
 }

@@ -50,6 +50,9 @@ const ConfigForm = (props) => {
     setTimeout(() => configButtonRef.current.focus(), 1);
   }
 
+  const [termsVisible, setTermsVisible] = useState(false);
+  const handleTermsToggle = () => setTermsVisible(!termsVisible);
+
   return (
     <div className="trial-config">
       <Form
@@ -147,11 +150,14 @@ const ConfigForm = (props) => {
         backButtonIsVisible={checkFollowup(submissionStatus)}
         backButtonRef={backButtonRef}
         onReconfigure={() => handleReconfigure()}
+        termsVisible={termsVisible}
+        onTermsToggle={handleTermsToggle}
       />
 
       <TrialFollowupForm
         values={values}
         isVisible={checkFollowup(submissionStatus)}
+        onTermsToggle={handleTermsToggle}
       />
     </div>
   );
