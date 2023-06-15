@@ -29,12 +29,23 @@
 .trial-summary-button {
   position: absolute;
   top: $sp-xl + $sp-xxs;
+  left: $sp-sm;
+  margin-top: 1px; // forever fudging
   transition:
     color 0.15s ease-out,
     transform 0.15s ease-out;
 
+  svg {
+    top: -0.5px;
+    width: 1.125em;
+
+    path {
+      fill: currentColor;
+    }
+  }
+
   &:hover, &:focus {
-    color: $cornflower-light;
+    color: $cornflower-md;
     transform: scale(1.125);
   }
 }

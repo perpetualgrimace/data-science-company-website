@@ -1,4 +1,5 @@
 import TrialLine from "./TrialLine";
+import ChevronLeftIcon from "/components/icons/ChevronLeftIcon";
 
 function calculateNodeCost(nodes) {
   const dollarsPerUnit = 5000;
@@ -56,7 +57,7 @@ export default function TrialSumary(props) {
         tabIndex={!backButtonIsVisible ? "-1" : null}
         disabled={!backButtonIsVisible}
       >
-        &lt; edit
+        <ChevronLeftIcon /> edit
       </button>
 
       <TrialLine
