@@ -24,7 +24,11 @@ export default function TrialSumary(props) {
         <span className="u-visually-hidden"> back</span>
       </button>
 
-      <div className="trial-terms-text">
+      <div
+        className="trial-terms-text"
+        tabIndex={!isVisible ? "-1" : null}
+        disabled={!isVisible}
+      >
         <p className="u-font-md u-mb-md">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
           reprehenderit quidem nobis corporis velit, numquam dolorem

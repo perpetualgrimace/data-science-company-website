@@ -61,8 +61,8 @@ export default function TrialSumary(props) {
           type="button"
           onClick={onReconfigure}
           ref={backButtonRef}
-          tabIndex={!backButtonIsVisible ? "-1" : null}
-          disabled={!backButtonIsVisible}
+          tabIndex={!backButtonIsVisible || termsVisible ? "-1" : null}
+          disabled={!backButtonIsVisible || termsVisible}
         >
           <ChevronLeftIcon /> edit
         </button>

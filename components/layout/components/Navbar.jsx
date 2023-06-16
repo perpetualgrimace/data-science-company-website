@@ -27,6 +27,14 @@ const menuItems = [
     route: "/deployment-options",
   },
   {
+    label: "Enterprise trial",
+    route: "/enterprise-trial",
+  },
+  {
+    label: "Docs →",
+    route: "https://docs.andalusia.ai",
+  },
+  {
     label: "Contact us",
     route: "/contact",
     isButton: true,
@@ -129,6 +137,7 @@ export default function Navbar() {
             <Link href="/">
               <a
                 className="navbar-menu-link"
+                tabIndex={menuIsOpen ? 0 : -1}
                 aria-current={checkRoute("/", currRoute)}
               >
                 <RetinaImg
