@@ -6,6 +6,7 @@ import { withFormik, Form } from "formik";
 import Button from "/components/controls/Button";
 import TextField from "/components/controls/TextField";
 
+import checkTrialConfig from "./checkTrialConfig.js";
 import TrialSummary from "./TrialSummary";
 import TrialFollowupForm from "./TrialFollowupForm";
 
@@ -36,7 +37,7 @@ const ConfigForm = (props) => {
 
   // config submit button
   function handleConfirmConfigure() {
-    if (Object.keys(errors).length === 0) {
+    if (checkTrialConfig(errors)) {
       setReconfiguring(false);
       submissionStatus = "configured";
       setTimeout(() => backButtonRef.current.focus(), 1); // wait till not disabled
@@ -136,7 +137,7 @@ const ConfigForm = (props) => {
           className="trial-followup-form-button"
           fontSize="md"
           fill
-          type="submit"
+          type="buton"
           disabled={isSubmitting || checkFollowup(submissionStatus)}
           onClick={() => handleConfirmConfigure()}
           refs={configButtonRef}
