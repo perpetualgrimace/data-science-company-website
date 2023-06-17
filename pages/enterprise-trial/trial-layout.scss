@@ -123,6 +123,7 @@ $card-height: 31.75rem;
 }
 
 .trial-followup-form.is-hidden {
+  display: flex;
   transform: translate(100%) scale(0.75);
   right: 0;
 }

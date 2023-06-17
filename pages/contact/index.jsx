@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import * as Yup from "yup";
 import { withFormik, Form } from "formik";
 
+import submissionMessage from "/content/submissionMessage.js";
+import encode from "/helpers/encode.js";
+
 import DefaultLayout from "/components/layout/DefaultLayout";
 
 import Button from "/components/controls/Button";
@@ -10,26 +13,6 @@ import TextField from "/components/controls/TextField";
 
 import EllipsisIcon from "/components/icons/EllipsisIcon";
 import SendIcon from "/components/icons/SendIcon";
-
-const submissionMessage = {
-  success: {
-    title: "Your message was sent",
-    body: "We’ll get back to you shortly",
-  },
-  fail: {
-    title: "Something went wrong",
-    body: "Our apologies. Please email us directly at contact@andalusia.ai",
-  },
-};
-
-const encode = (data) => {
-  return Object.keys(data)
-    .map(
-      (key) =>
-        encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-    )
-    .join("&");
-};
 
 let submissionStatus = null;
 

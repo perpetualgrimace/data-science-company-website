@@ -40,6 +40,7 @@ export default function TextField(props) {
           min={min}
           max={max}
           step={step}
+          disabled={disabled}
           tabIndex={disabled ? -1 : null}
         />
       </label>

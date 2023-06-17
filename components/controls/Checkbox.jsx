@@ -3,7 +3,15 @@ import { Field } from "formik";
 import WarningIcon from "/components/icons/WarningIcon";
 
 export default function TextField(props) {
-  const { labelText, name, fontSize, touched, errors, autoFocus } = props;
+  const {
+    labelText,
+    name,
+    fontSize,
+    touched,
+    errors,
+    autoFocus,
+    disabled,
+  } = props;
 
   return (
     <p className="checkbox-field u-mb-lg">
@@ -16,6 +24,8 @@ export default function TextField(props) {
           name={name}
           autoFocus={autoFocus}
           type="checkbox"
+          disabled={disabled}
+          tabIndex={disabled ? "-1" : ""}
         />
 
         <span className="checkbox-field-label-text">{labelText}</span>

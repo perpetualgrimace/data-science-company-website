@@ -4,8 +4,16 @@ import WarningIcon from "/components/icons/WarningIcon";
 import ChevronDownIcon from "/components/icons/ChevronDownIcon";
 
 export default function Select(props) {
-  const { labelText, options, name, selection, inline, touched, errors } =
-    props;
+  const {
+    labelText,
+    options,
+    name,
+    selection,
+    inline,
+    touched,
+    errors,
+    disabled,
+  } = props;
 
   return (
     <p className="select-outer u-mb-lg">
@@ -31,6 +39,8 @@ export default function Select(props) {
             name={name}
             value={selection}
             as="select"
+            disabled={disabled}
+            tabIndex={disabled ? "-1" : ""}
           >
             {options.map((option) => (
               <option value={option.value} key={`${option.value}-option`}>
