@@ -1,12 +1,17 @@
-export default function checkTrialConfig(errors) {
-  if (checkConfigFieldsValid(errors)) {
+export default function checkTrialConfig(errors, touched) {
+  if (checkConfigFieldsValid(errors, touched)) {
     return true;
   } else return false;
 }
 
-function checkConfigFieldsValid(errors) {
+function checkConfigFieldsValid(errors, touched) {
   const errorKeys = Object.keys(errors);
-  if (
+  const touchedKeys = Object.keys(touched);
+
+  // no fields touched
+  if (touchedKeys.length === 0) return false;
+  // errors in first 5 fields
+  else if (
     errorKeys.length &&
     (errors.nodes ||
       errors.cpuPerNode ||
@@ -16,5 +21,6 @@ function checkConfigFieldsValid(errors) {
   ) {
     return false;
   }
-  return true;
+  // config valid
+  else return true;
 }

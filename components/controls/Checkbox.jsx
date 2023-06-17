@@ -32,7 +32,7 @@ export default function TextField(props) {
       </label>
 
       {touched[[name]] && errors[[name]] && (
-        <span className="checkbox-field-alert">
+        <span className="checkbox-field-alert text-field-alert">
           <WarningIcon /> {errors[[name]]}
         </span>
       )}

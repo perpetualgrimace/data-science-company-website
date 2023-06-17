@@ -19,6 +19,7 @@ export default function TextField(props) {
     max,
     step,
     disabled,
+    refs,
   } = props;
 
   return (
@@ -42,6 +43,7 @@ export default function TextField(props) {
           step={step}
           disabled={disabled}
           tabIndex={disabled ? -1 : null}
+          innerRef={refs}
         />
       </label>
 

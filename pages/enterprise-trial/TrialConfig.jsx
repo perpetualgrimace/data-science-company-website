@@ -50,19 +50,33 @@ const ConfigForm = (props) => {
 
   const [configured, setConfigured] = useState(false);
 
+  const nodesRef = useRef(null);
+  const nodesCpu = useRef(null);
+  const nodesGpu = useRef(null);
+  const nodesRam = useRef(null);
+  const nodesStorage = useRef(null);
   const configButtonRef = useRef(null);
   const backButtonRef = useRef(null);
 
   function checkFollowup() {
-    if (configured && checkTrialConfig(errors)) return true;
+    if (configured && checkTrialConfig(errors, touched)) return true;
     else return false;
   }
 
   // config submit button
   function handleConfirmConfigure() {
-    if (checkTrialConfig(errors)) {
+    if (checkTrialConfig(errors, touched)) {
       setConfigured(true);
       setTimeout(() => backButtonRef.current.focus(), 1); // wait till not disabled
+    }
+    // manually touch first 5 fields then refocus button
+    else {
+      nodesRef.current.focus();
+      nodesCpu.current.focus();
+      nodesGpu.current.focus();
+      nodesRam.current.focus();
+      nodesStorage.current.focus();
+      configButtonRef.current.focus();
     }
   }
 
@@ -116,6 +130,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={checkFollowup(submissionStatus)}
+              refs={nodesRef}
             />
             <TextField
               name="cpuPerNode"
@@ -130,6 +145,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={checkFollowup(submissionStatus)}
+              refs={nodesCpu}
             />
             <TextField
               name="gpuPerNode"
@@ -144,6 +160,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={checkFollowup(submissionStatus)}
+              refs={nodesGpu}
             />
             <TextField
               name="ramPerNode"
@@ -158,6 +175,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={checkFollowup(submissionStatus)}
+              refs={nodesRam}
             />
             <TextField
               name="storagePerNode"
@@ -172,6 +190,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={checkFollowup(submissionStatus)}
+              refs={nodesStorage}
             />
 
             <Button
@@ -229,7 +248,7 @@ const ConfigForm = (props) => {
             />
 
             <Checkbox
-              name="accept-terms"
+              name="terms"
               touched={touched}
               errors={errors}
               disabled={!checkFollowup(submissionStatus)}
@@ -286,6 +305,7 @@ const TrialConfig = withFormik({
       company: props.company || "",
       email: props.email || "",
       location: props.location || "us",
+      terms: props.terms || false,
     };
   },
   validationSchema: Yup.object().shape({
@@ -312,10 +332,11 @@ const TrialConfig = withFormik({
     storagePerNode: Yup.number()
       .min(storagePerNodeMin)
       .max(storagePerNodeMax)
-      .required("Required"),
+      .required("Choose storage (in TB)"),
     company: Yup.string().required("Required"),
     email: Yup.string().email("Invalid").required("Required"),
     location: Yup.string().required("Required"),
+    terms: Yup.bool().oneOf([true], "Please agree to the terms"),
   }),
   handleSubmit: (values, actions) => onSubmit(values, actions),
 })(ConfigForm);
