@@ -36,7 +36,7 @@ function onSubmit(values, actions) {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: encode({
-      "form-name": "Andalusia-website contact form",
+      "form-name": "Andalusia-website eterprise trial request",
       ...values,
     }),
   })
@@ -78,7 +78,11 @@ const ConfigForm = (props) => {
   useEffect(() => (submissionStatus = null));
 
   return (
-    <section className="trial-section padded-section">
+    <section
+      className={`trial-section ${
+        submissionStatus?.length ? "fullscreen" : "padded"
+      }-section`}
+    >
       <h1 className="u-text-c u-title">
         {submissionMessage[submissionStatus]?.title || "Enterprise trial"}
       </h1>
@@ -90,8 +94,8 @@ const ConfigForm = (props) => {
           </p>
         </div>
       ) : (
-        <div className="trial-config">
-          <Form
+        <Form className="trial-config">
+          <div
             className={`trial-config-form trial-card darkglass u-mh-auto u-mb-md is-${
               checkFollowup(submissionStatus) ? "hidden" : "visible"
             }`}
@@ -174,14 +178,14 @@ const ConfigForm = (props) => {
               className="trial-followup-form-button"
               fontSize="md"
               fill
-              type="buton"
-              disabled={isSubmitting || checkFollowup(submissionStatus)}
+              type="button"
+              disabled={checkFollowup(submissionStatus)}
               onClick={() => handleConfirmConfigure()}
               refs={configButtonRef}
             >
               Start free 3 month trial
             </Button>
-          </Form>
+          </div>
 
           <TrialSummary
             values={values}
@@ -265,7 +269,7 @@ const ConfigForm = (props) => {
               )}
             </Button>
           </TrialFollowupForm>
-        </div>
+        </Form>
       )}
     </section>
   );
@@ -309,8 +313,8 @@ const TrialConfig = withFormik({
       .min(storagePerNodeMin)
       .max(storagePerNodeMax)
       .required("Required"),
+    company: Yup.string().required("Required"),
     email: Yup.string().email("Invalid").required("Required"),
-    name: Yup.string().required("Required"),
     location: Yup.string().required("Required"),
   }),
   handleSubmit: (values, actions) => onSubmit(values, actions),
