@@ -8,8 +8,6 @@ export default function TrialSumary(props) {
       className={`trial-terms trial-card darkglass u-mh-auto u-mb-md is-${
         isVisible ? "visible" : "hidden"
       }`}
-      name="Andalusia-website contact form"
-      data-netlify={true}
     >
       <h2 className="u-text-c">Terms of service</h2>
 

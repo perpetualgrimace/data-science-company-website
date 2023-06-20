@@ -108,12 +108,15 @@ const ConfigForm = (props) => {
           </p>
         </div>
       ) : (
-        <Form className="trial-config">
+        <Form
+          className="trial-config"
+          name="Andalusia-website contact form"
+          data-netlify={true}
+        >
           <div
             className={`trial-config-form trial-card darkglass u-mh-auto u-mb-md is-${
               checkFollowup(submissionStatus) ? "hidden" : "visible"
             }`}
-            name="Andalusia-website contact form"
           >
             <h2 className="u-text-c">Design your cluster</h2>
 
