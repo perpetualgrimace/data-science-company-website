@@ -7,7 +7,7 @@ export default function SubmitForm(props) {
         isVisible ? "visible" : "hidden"
       }`}
     >
-      <h2 className="u-text-c">Start free 3 month trial</h2>
+      <h2 className="u-text-c">Submit trial request</h2>
 
       {children}
     </div>

@@ -56,7 +56,7 @@ const ConfigForm = (props) => {
   const nodesRam = useRef(null);
   const nodesStorage = useRef(null);
   const configButtonRef = useRef(null);
-  const backButtonRef = useRef(null);
+  const companyRef = useRef(null);
 
   function checkFollowup() {
     if (configured && checkTrialConfig(errors, touched)) return true;
@@ -67,7 +67,7 @@ const ConfigForm = (props) => {
   function handleConfirmConfigure() {
     if (checkTrialConfig(errors, touched)) {
       setConfigured(true);
-      setTimeout(() => backButtonRef.current.focus(), 1); // wait till not disabled
+      setTimeout(() => companyRef.current.focus(), 1); // wait till not disabled
     }
     // manually touch first 5 fields then refocus button
     else {
@@ -212,7 +212,6 @@ const ConfigForm = (props) => {
           <TrialSummary
             values={values}
             backButtonIsVisible={checkFollowup(submissionStatus)}
-            backButtonRef={backButtonRef}
             onReconfigure={() => handleReconfigure()}
             termsVisible={termsVisible}
             onTermsToggle={handleTermsToggle}
@@ -227,6 +226,7 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={!checkFollowup(submissionStatus)}
+              refs={companyRef}
             />
             <TextField
               labelText="Contact email address"
@@ -282,11 +282,11 @@ const ConfigForm = (props) => {
             >
               {isSubmitting ? (
                 <>
-                  <EllipsisIcon /> Submitting trial request
+                  <EllipsisIcon /> Submitting
                 </>
               ) : (
                 <>
-                  <SendIcon /> Submit trial request
+                  <SendIcon /> Submit
                 </>
               )}
             </Button>

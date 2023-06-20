@@ -39,7 +39,6 @@ export default function TrialSumary(props) {
   const {
     values,
     backButtonIsVisible,
-    backButtonRef,
     onReconfigure,
     termsVisible,
     onTermsToggle,
@@ -60,7 +59,6 @@ export default function TrialSumary(props) {
           }`}
           type="button"
           onClick={onReconfigure}
-          ref={backButtonRef}
           tabIndex={!backButtonIsVisible || termsVisible ? "-1" : null}
           disabled={!backButtonIsVisible || termsVisible}
         >
