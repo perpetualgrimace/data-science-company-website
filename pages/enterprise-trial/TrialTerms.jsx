@@ -1,3 +1,5 @@
+import termsOfService from "/content/termsOfService.js";
+
 import CrossIcon from "/components/icons/CrossIcon";
 
 export default function TrialSumary(props) {
@@ -9,7 +11,10 @@ export default function TrialSumary(props) {
         isVisible ? "visible" : "hidden"
       }`}
     >
-      <h2 className="u-text-c">Terms of service</h2>
+      <h2 className="u-text-c">
+        {termsOfService.title}
+        <div className="u-font-sm"> {termsOfService.subtitle}</div>
+      </h2>
 
       <button
         className="trial-terms-button u-subhead u-font-sm"
@@ -27,47 +32,14 @@ export default function TrialSumary(props) {
         tabIndex={!isVisible ? "-1" : null}
         disabled={!isVisible}
       >
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
-
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
-
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
-
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
-
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
-
-        <p className="u-font-md u-mb-md">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-          reprehenderit quidem nobis corporis velit, numquam dolorem
-          beatae commodi et. Perferendis earum commodi quod quae
-          laboriosam quasi quam id veniam veritatis.
-        </p>
+        {termsOfService.body?.map((term) => (
+          <div className="trial-terms-text-block" key={term.paragraph}>
+            {term.subhead && (
+              <h2 className="u-font-lg u-mb-xxs">{term.subhead}</h2>
+            )}
+            <p className="u-font-md u-mb-md">{term.paragraph}</p>
+          </div>
+        ))}
       </div>
     </section>
   );
