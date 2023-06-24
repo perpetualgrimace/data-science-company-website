@@ -1,6 +1,4 @@
-function addCommas(val) {
-  return val.toLocaleString("en-US");
-}
+import addCommas from "/helpers/addCommas.js";
 
 export default function TrialLine(props) {
   const { value, measure, currency = "$", cost } = props;

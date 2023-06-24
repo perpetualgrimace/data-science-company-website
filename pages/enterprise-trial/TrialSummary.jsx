@@ -24,15 +24,19 @@ function calculateStorageCost(value, nodes) {
   return value * nodes * dollarsPerTB || 0;
 }
 function calculateTotalCost(values) {
-  const { nodes, cpuPerNode, gpuPerNode, ramPerNode, storagePerNode } =
-    values;
-  return (
-    calculateNodeCost(nodes) +
-    calculateCPUCost(cpuPerNode, nodes) +
-    calculateGPUCost(gpuPerNode, nodes) +
-    calculateRAMCost(ramPerNode, nodes) +
-    calculateStorageCost(storagePerNode, nodes)
-  );
+  if (values?.nodes) {
+    const { nodes, cpuPerNode, gpuPerNode, ramPerNode, storagePerNode } =
+      values;
+    return (
+      calculateNodeCost(nodes) +
+      calculateCPUCost(cpuPerNode, nodes) +
+      calculateGPUCost(gpuPerNode, nodes) +
+      calculateRAMCost(ramPerNode, nodes) +
+      calculateStorageCost(storagePerNode, nodes)
+    );
+  }
+
+  return 0, 0, 0, 0, 0;
 }
 
 export default function TrialSumary(props) {
@@ -66,34 +70,43 @@ export default function TrialSumary(props) {
         </button>
 
         <TrialLine
-          value={values.nodes || 0}
+          value={values?.nodes || 0}
           measure=" nodes "
-          cost={calculateNodeCost(values.nodes)}
+          cost={calculateNodeCost(values?.nodes) || "0"}
         />
         <TrialLine
-          value={values.cpuPerNode * values.nodes || 0}
+          value={values?.cpuPerNode * values?.nodes || 0}
           measure=" CPUs total "
-          cost={calculateCPUCost(values.cpuPerNode, values.nodes)}
+          cost={
+            calculateCPUCost(values?.cpuPerNode, values?.nodes) || "0"
+          }
         />
         <TrialLine
-          value={values.gpuPerNode * values.nodes || 0}
+          value={values?.gpuPerNode * values?.nodes || 0}
           measure=" GPUs total "
-          cost={calculateGPUCost(values.gpuPerNode, values.nodes)}
+          cost={
+            calculateGPUCost(values?.gpuPerNode, values?.nodes) || "0"
+          }
         />
         <TrialLine
-          value={`${values.ramPerNode * values.nodes || 0} GB`}
+          value={`${values?.ramPerNode * values?.nodes || 0} GB`}
           measure=" RAM total "
-          cost={calculateRAMCost(values.ramPerNode, values.nodes)}
+          cost={
+            calculateRAMCost(values?.ramPerNode, values?.nodes) || "0"
+          }
         />
         <TrialLine
-          value={`${values.storagePerNode * values.nodes || 0} TB`}
+          value={`${values?.storagePerNode * values?.nodes || 0} TB`}
           measure=" storage total "
-          cost={calculateStorageCost(values.storagePerNode, values.nodes)}
+          cost={
+            calculateStorageCost(values?.storagePerNode, values?.nodes) ||
+            "0"
+          }
         />
 
         <TrialLine
           value="Total cost "
-          cost={calculateTotalCost(values)}
+          cost={calculateTotalCost(values) || "0"}
         />
       </section>
 
