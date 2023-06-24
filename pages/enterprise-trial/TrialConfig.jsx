@@ -332,7 +332,7 @@ const TrialConfig = withFormik({
       .integer()
       .min(ramPerNodeMin)
       .max(ramPerNodeMax)
-      .required("Required"),
+      .required("Choose RAM (in GB)"),
     storagePerNode: Yup.number()
       .min(storagePerNodeMin)
       .max(storagePerNodeMax)
