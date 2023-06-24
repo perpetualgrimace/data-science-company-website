@@ -126,7 +126,8 @@ const ConfigForm = (props) => {
               placeholder={`${nodesMin}+`}
               helpText={`Max ${nodesMax}`}
               type="number"
-              min="4"
+              min={nodesMin}
+              max={nodesMax}
               step="1"
               suffix=" nodes"
               fontSize="md"
@@ -141,8 +142,8 @@ const ConfigForm = (props) => {
               placeholder={`${cpuPerNodeMin}+ / node`}
               helpText={`Max ${cpuPerNodeMax} / node`}
               type="number"
-              min="1"
-              max="16"
+              min={cpuPerNodeMin}
+              max={cpuPerNodeMax}
               step="1"
               fontSize="md"
               touched={touched}
@@ -156,8 +157,8 @@ const ConfigForm = (props) => {
               placeholder={`${gpuPerNodeMin}+ / node`}
               helpText={`Max ${gpuPerNodeMax} / node`}
               type="number"
-              min="1"
-              max="16"
+              min={gpuPerNodeMin}
+              max={gpuPerNodeMax}
               step="1"
               fontSize="md"
               touched={touched}
@@ -171,8 +172,8 @@ const ConfigForm = (props) => {
               placeholder={`${ramPerNodeMin}+ GB / node`}
               helpText={`Max ${ramPerNodeMax} GB / node`}
               type="number"
-              min="2"
-              max="64"
+              min={ramPerNodeMin}
+              max={ramPerNodeMax}
               step="1"
               fontSize="md"
               touched={touched}
@@ -186,8 +187,8 @@ const ConfigForm = (props) => {
               placeholder={`${storagePerNodeMin}+ TB / node`}
               helpText={`Max ${storagePerNodeMax} TB / node`}
               type="number"
-              min="0.25"
-              max="100"
+              min={storagePerNodeMin}
+              max={storagePerNodeMax}
               step="0.25"
               fontSize="md"
               touched={touched}
