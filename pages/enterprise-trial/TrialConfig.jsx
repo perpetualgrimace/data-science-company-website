@@ -22,7 +22,7 @@ const nodesMin = 4;
 const nodesMax = 100;
 const cpuPerNodeMin = 1;
 const cpuPerNodeMax = 16;
-const gpuPerNodeMin = 1;
+const gpuPerNodeMin = 0;
 const gpuPerNodeMax = 16;
 const ramPerNodeMin = 2;
 const ramPerNodeMax = 64;
@@ -56,7 +56,7 @@ const ConfigForm = (props) => {
   const nodesRam = useRef(null);
   const nodesStorage = useRef(null);
   const configButtonRef = useRef(null);
-  const companyRef = useRef(null);
+  const nameRef = useRef(null);
 
   function checkFollowup() {
     if (configured && checkTrialConfig(errors, touched)) return true;
@@ -67,7 +67,7 @@ const ConfigForm = (props) => {
   function handleConfirmConfigure() {
     if (checkTrialConfig(errors, touched)) {
       setConfigured(true);
-      setTimeout(() => companyRef.current.focus(), 1); // wait till not disabled
+      setTimeout(() => nameRef.current.focus(), 1); // wait till not disabled
     }
     // manually touch first 5 fields then refocus button
     else {
@@ -220,6 +220,16 @@ const ConfigForm = (props) => {
 
           <TrialFollowupForm isVisible={checkFollowup(submissionStatus)}>
             <TextField
+              labelText="Your name"
+              placeholder="Firstname Lastname"
+              name="name"
+              fontSize="md"
+              touched={touched}
+              errors={errors}
+              disabled={!checkFollowup(submissionStatus)}
+              refs={nameRef}
+            />
+            <TextField
               labelText="Company name"
               placeholder="Your Company"
               name="company"
@@ -227,7 +237,15 @@ const ConfigForm = (props) => {
               touched={touched}
               errors={errors}
               disabled={!checkFollowup(submissionStatus)}
-              refs={companyRef}
+            />
+            <TextField
+              labelText="Your role"
+              placeholder="i.e., Data Scientist"
+              name="role"
+              fontSize="md"
+              touched={touched}
+              errors={errors}
+              disabled={!checkFollowup(submissionStatus)}
             />
             <TextField
               labelText="Contact email address"
@@ -239,16 +257,14 @@ const ConfigForm = (props) => {
               disabled={!checkFollowup(submissionStatus)}
             />
 
-            <Select
+            <TextField
               labelText="Company location"
+              placeholder="i.e., United States"
               name="location"
+              fontSize="md"
               touched={touched}
               errors={errors}
               disabled={!checkFollowup(submissionStatus)}
-              options={[
-                { label: "United States", value: "us" },
-                { label: "Saudi Arabia", value: "sa" },
-              ]}
             />
 
             <Checkbox
@@ -306,9 +322,11 @@ const TrialConfig = withFormik({
       gpuPerNode: props.gpuPerNode || "",
       ramPerNode: props.ramPerNode || "",
       storagePerNode: props.storagePerNode || "",
+      name: props.name || "",
       company: props.company || "",
+      role: props.role || "",
       email: props.email || "",
-      location: props.location || "us",
+      location: props.location || "",
       terms: props.terms || false,
     };
   },
@@ -337,7 +355,9 @@ const TrialConfig = withFormik({
       .min(storagePerNodeMin)
       .max(storagePerNodeMax)
       .required("Choose storage (in TB)"),
+    name: Yup.string().required("Required"),
     company: Yup.string().required("Required"),
+    role: Yup.string(),
     email: Yup.string().email("Invalid").required("Required"),
     location: Yup.string().required("Required"),
     terms: Yup.bool().oneOf([true], "Please agree to the terms"),

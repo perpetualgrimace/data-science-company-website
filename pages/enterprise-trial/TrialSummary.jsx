@@ -55,7 +55,7 @@ export default function TrialSumary(props) {
           backButtonIsVisible ? "followup" : "configure"
         }-mode is-${termsVisible ? "hidden" : "visible"}`}
       >
-        <h2 className="u-text-c">Cluster summary</h2>
+        <h2 className="u-text-c">Estimated cost</h2>
 
         <button
           className={`trial-summary-button u-subhead u-font-sm is-${

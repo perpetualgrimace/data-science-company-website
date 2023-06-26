@@ -9,7 +9,7 @@ export default function TrialLine(props) {
       {measure && <span className="trial-label">{measure} </span>}
       <span className="trial-figure">
         {currency}
-        {addCommas(cost)} monthly
+        {addCommas(cost)} per year
       </span>
     </p>
   );
