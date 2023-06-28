@@ -144,3 +144,13 @@ $card-height: 31.75rem;
 .trial-summary.followup-mode.is-hidden {
   transform: scaleX(0.5) translateX(-200%) !important;
 }
+
+// hosted test overrides
+.hosted-test-form {
+  max-width: 100%;
+
+  > .trial-followup-form {
+    min-height: auto;
+    max-width: calc(100% - #{$sp-lg});
+  }
+}

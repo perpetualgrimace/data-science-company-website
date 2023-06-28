@@ -7,12 +7,7 @@ import submissionMessage from "/content/submissionMessage.js";
 import encode from "/helpers/encode.js";
 
 import Button from "/components/controls/Button";
-import Checkbox from "/components/controls/Checkbox";
-import Select from "/components/controls/Select";
 import TextField from "/components/controls/TextField";
-
-import EllipsisIcon from "/components/icons/EllipsisIcon";
-import SendIcon from "/components/icons/SendIcon";
 
 import checkTrialConfig from "./checkTrialConfig.js";
 import TrialSummary from "./TrialSummary";
@@ -218,96 +213,16 @@ const ConfigForm = (props) => {
             onTermsToggle={handleTermsToggle}
           />
 
-          <TrialFollowupForm isVisible={checkFollowup(submissionStatus)}>
-            <TextField
-              labelText="Your name"
-              placeholder="Firstname Lastname"
-              name="name"
-              fontSize="md"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-              refs={nameRef}
-            />
-            <TextField
-              labelText="Company name"
-              placeholder="Your Company"
-              name="company"
-              fontSize="md"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-            />
-            <TextField
-              labelText="Your role"
-              placeholder="i.e., Data Scientist"
-              name="role"
-              fontSize="md"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-            />
-            <TextField
-              labelText="Contact email address"
-              placeholder="your@emailaddress.com"
-              name="email"
-              fontSize="md"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-            />
-
-            <TextField
-              labelText="Company location"
-              placeholder="i.e., United States"
-              name="location"
-              fontSize="md"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-            />
-
-            <Checkbox
-              name="terms"
-              touched={touched}
-              errors={errors}
-              disabled={!checkFollowup(submissionStatus)}
-              labelText={
-                <>
-                  I agree to the{" "}
-                  <button
-                    type="button"
-                    className="link"
-                    onClick={handleTermsToggle}
-                    disabled={!checkFollowup(submissionStatus)}
-                    tabIndex={
-                      !checkFollowup(submissionStatus) ? "-1" : ""
-                    }
-                  >
-                    Terms of Service
-                  </button>
-                </>
-              }
-            />
-
-            <Button
-              className="trial-followup-form-button"
-              fontSize="md"
-              fill
-              type="submit"
-              disabled={!checkFollowup(submissionStatus) || isSubmitting}
-            >
-              {isSubmitting ? (
-                <>
-                  <EllipsisIcon /> Submitting
-                </>
-              ) : (
-                <>
-                  <SendIcon /> Submit
-                </>
-              )}
-            </Button>
-          </TrialFollowupForm>
+          <TrialFollowupForm
+            title="Submit trial request"
+            isVisible={checkFollowup(submissionStatus)}
+            touched={touched}
+            errors={errors}
+            isSubmitting={isSubmitting}
+            showTermsToggle={true}
+            handleTermsToggle={handleTermsToggle}
+            focusRef={nameRef}
+          />
         </Form>
       )}
     </section>
