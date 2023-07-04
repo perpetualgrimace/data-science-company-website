@@ -16,6 +16,8 @@ export default function SubmitForm(props) {
     focusRef,
   } = props;
 
+  if (touched === undefined || errors === undefined) return null;
+
   return (
     <div
       className={`trial-followup-form trial-card darkglass u-mh-auto u-mb-md is-${
