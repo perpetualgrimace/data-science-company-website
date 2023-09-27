@@ -19,6 +19,8 @@ export default function Meta(props) {
       <link rel="manifest" href="/manifest.json" />
       <meta name="theme-color" content="#161B22" />
 
+      <meta name="robots" content="noindex" />
+
       {children}
     </Head>
   );
